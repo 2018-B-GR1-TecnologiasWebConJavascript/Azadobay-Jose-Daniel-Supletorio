@@ -20,7 +20,11 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+
   'GET /Raspberry/saludo': 'RaspberryController.saludo',
+  'GET /Usuario/ok': 'UsuarioController.holaMundo',
+  'POST /Usuario/buscarPorNombre': 'UsuarioController.buscarPorNombre',
+
 
 
   /***************************************************************************

@@ -17,6 +17,7 @@ import {UsuarioRestService} from "./Servicios/REST/usuario-rest.service";
 import {EventoRestService} from "./Servicios/REST/evento-rest-service";
 import {MedicamentoRestService} from "./Servicios/REST/medicamento-rest.service";
 import { RutaAdministrarRolesComponent } from './rutas/ruta-administrar-roles/ruta-administrar-roles.component';
+import { CrudComponent } from './rutas/crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RutaAdministrarRolesComponent } from './rutas/ruta-administrar-roles/ru
     RutaGestionMedicamentosComponent,
     RutaGestioEventosComponent,
     NoEncontradoComponent,
-    RutaAdministrarRolesComponent
+    RutaAdministrarRolesComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,

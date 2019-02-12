@@ -7,6 +7,7 @@ import {RutaGestionPacientesComponent} from "./rutas/ruta-gestion-pacientes/ruta
 import {RutaGestionMedicamentosComponent} from "./rutas/ruta-gestion-medicamentos/ruta-gestion-medicamentos.component";
 import {RutaGestioEventosComponent} from "./rutas/ruta-gestion-eventos/ruta-gestio-eventos.component";
 import {RutaLoginComponent} from "./rutas/ruta-login/ruta-login.component";
+import {CrudComponent} from "./rutas/crud/crud.component";
 
 const routes: Routes = [
 
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: RutaLoginComponent
+  },
+  {
+    path: 'crud',
+    component: CrudComponent
   },
   {
     path: 'no-encontrado',
