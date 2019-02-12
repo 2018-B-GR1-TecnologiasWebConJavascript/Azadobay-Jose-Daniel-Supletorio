@@ -1,0 +1,47 @@
+<h1>  LISTA DE MEDICAMENTOS </h1>
+
+<div>
+  <label for="campoBuscar"></label>
+  <input id="campoBuscar" type="text">
+  <button> BUSCAR </button>
+</div>
+
+
+<div>
+  <table>
+    
+    <!-- tr -- table row -->
+    <tr>
+      <!-- tr -- table header-->
+      <th> Codigo </th>
+      <th> Nombre </th>
+      <th> Gramos </th>
+      <th> Composicion</th>
+      <th> Uso </th>
+      <th> Fecha de Caducidad </th>
+      <th> Numero de Pastillas </th>
+    </tr>
+    
+    <tr *ngFor="let m of medicamentos ">
+      <td> {{m.id }} </td>
+      <td> {{m.nombre}} </td>
+      <td> {{m.gramosAIngerir }} </td>
+      <td> {{m.composicion}} </td>
+      <td> {{m.usadoPara}} </td>
+      <td> {{m.fechaCaducidad}} </td>
+      <td> {{m.numeroPastillas}} </td>
+      
+      
+      <td>
+        <button (click)="eliminar(empresa)"> Eliminar </button>
+        
+        <button (click)="eliminar(empresa)"> Actualizar </button>
+      </td>
+    </tr>
+    
+    
+    
+    <!-- Directivas con importantes -->
+    <!-- *ngFor   Itera un Arreglo -->
+  </table>
+</div>

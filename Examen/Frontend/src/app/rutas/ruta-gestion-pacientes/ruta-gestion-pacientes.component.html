@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+<header>
+  <div class="contenedor">
+    <h2>Pacientes</h2>
+  </div>
+</header>
+
+<main>
+  <div>
+    <p>Gestion de pacientes</p>
+    <a routerLink="/home/crear-empresa">
+      <button>
+        CREAR
+      </button>
+    </a>
+  
+    <div>
+      <label for="usuarioABuscar"></label>
+      <input id="usuarioABuscar" type="text">
+      <button> BUSCAR </button>
+    </div>
+  
+  
+  
+    <table>
+      
+      
+      
+      <!-- tr -- table row -->
+      <tr>
+        <!-- tr -- table header-->
+        <th> Codigo </th>
+        <th> Nombre</th>
+        <th> Razon Social</th>
+        <th> Telefono</th>
+        <th> Correo</th>
+        <th> Tiene Seguro Social</th>
+        <th> Accion</th>
+      </tr>
+      
+      <tr *ngFor="let p of pacientes">
+        <td> {{p.id }} </td>
+        <td> {{p.nombres}} </td>
+        <td> {{p.apellidos}} </td>
+        <td> {{p.fecha_nacimiento}} </td>
+        <td> {{p.numeroHijos}} </td>
+        <td> {{p.seguroSocial}} </td>
+        
+        
+        <td>
+          <button (click)="eliminar(empresa)"> Eliminar</button>
+          <button> Actualizar</button>
+        </td>
+      </tr>
+      
+      
+      <!-- Directivas con importantes -->
+      <!-- *ngFor   Itera un Arreglo -->
+    </table>
+  </div>
+</main>
+</html>
+
+<router-outlet></router-outlet>
+

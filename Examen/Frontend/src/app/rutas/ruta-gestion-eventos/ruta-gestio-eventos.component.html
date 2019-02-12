@@ -1,0 +1,40 @@
+<h1>  LISTA DE EVENTOS </h1>
+
+<div>
+  <label for="campoBuscar"></label>
+  <input id="campoBuscar" type="text">
+  <button> BUSCAR </button>
+</div>
+
+
+<div>
+  <table>
+    
+    <!-- tr -- table row -->
+    <tr>
+      <!-- tr -- table header-->
+      <th> Codigo </th>
+      <th> Nombre </th>
+      <th> Fecha del Evento </th>
+      
+    </tr>
+    
+    <tr *ngFor="let e of  eventos">
+      <td> {{e.id }} </td>
+      <td> {{e.nombre}} </td>
+      <td> {{e.fechaEvento }} </td>
+      
+      
+      <td>
+        <button (click)="eliminar(empresa)"> Eliminar </button>
+        
+        <button (click)="eliminar(empresa)"> Actualizar </button>
+      </td>
+    </tr>
+    
+    
+    
+    <!-- Directivas con importantes -->
+    <!-- *ngFor   Itera un Arreglo -->
+  </table>
+</div>
