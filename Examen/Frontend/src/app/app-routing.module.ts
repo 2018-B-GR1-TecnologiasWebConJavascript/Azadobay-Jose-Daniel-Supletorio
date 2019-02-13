@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {NoEncontradoComponent} from './rutas/no-encontrado/no-encontrado.component';
+import {RutaLoginComponent} from "./rutas/usuarios/ruta-login/ruta-login.component";
 import {RutaHomeComponent} from "./rutas/ruta-home/ruta-home.component";
-import {RutaGestionUsuariosComponent} from "./rutas/ruta-gestion-usuarios/ruta-gestion-usuarios.component";
+import {RutaGestionUsuariosComponent} from "./rutas/usuarios/ruta-gestion-usuarios/ruta-gestion-usuarios.component";
 import {RutaGestionPacientesComponent} from "./rutas/ruta-gestion-pacientes/ruta-gestion-pacientes.component";
 import {RutaGestionMedicamentosComponent} from "./rutas/ruta-gestion-medicamentos/ruta-gestion-medicamentos.component";
 import {RutaGestioEventosComponent} from "./rutas/ruta-gestion-eventos/ruta-gestio-eventos.component";
-import {RutaLoginComponent} from "./rutas/ruta-login/ruta-login.component";
-import {CrudComponent} from "./rutas/crud/crud.component";
+import {RegistroUsuarioComponent} from "./rutas/usuarios/registro-usuario/registro-usuario.component";
+
 
 const routes: Routes = [
 
@@ -37,15 +38,15 @@ const routes: Routes = [
         path: 'gEventos',
         component: RutaGestioEventosComponent
       },
+      {
+        path: 'crearUsuario',
+        component: RegistroUsuarioComponent
+      },
     ]
   },
   {
     path: 'login',
     component: RutaLoginComponent
-  },
-  {
-    path: 'crud',
-    component: CrudComponent
   },
   {
     path: 'no-encontrado',

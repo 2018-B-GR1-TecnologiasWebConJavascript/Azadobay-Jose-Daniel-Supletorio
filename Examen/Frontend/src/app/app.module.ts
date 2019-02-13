@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RutaLoginComponent } from './rutas/ruta-login/ruta-login.component';
 import { RutaHomeComponent } from './rutas/ruta-home/ruta-home.component';
-import { RutaGestionUsuariosComponent } from './rutas/ruta-gestion-usuarios/ruta-gestion-usuarios.component';
 import { RutaGestionPacientesComponent } from './rutas/ruta-gestion-pacientes/ruta-gestion-pacientes.component';
 import { RutaGestionMedicamentosComponent } from './rutas/ruta-gestion-medicamentos/ruta-gestion-medicamentos.component';
 import { RutaGestioEventosComponent } from './rutas/ruta-gestion-eventos/ruta-gestio-eventos.component';
@@ -16,8 +14,11 @@ import {PacienteRestService} from "./Servicios/REST/paciente-rest.service";
 import {UsuarioRestService} from "./Servicios/REST/usuario-rest.service";
 import {EventoRestService} from "./Servicios/REST/evento-rest-service";
 import {MedicamentoRestService} from "./Servicios/REST/medicamento-rest.service";
-import { RutaAdministrarRolesComponent } from './rutas/ruta-administrar-roles/ruta-administrar-roles.component';
-import { CrudComponent } from './rutas/crud/crud.component';
+import {RutaLoginComponent} from "./rutas/usuarios/ruta-login/ruta-login.component";
+import {RutaGestionUsuariosComponent} from "./rutas/usuarios/ruta-gestion-usuarios/ruta-gestion-usuarios.component";
+import {RutaAdministrarRolesComponent} from "./rutas/usuarios/ruta-administrar-roles/ruta-administrar-roles.component";
+import {FormsModule} from "@angular/forms";
+import { RegistroUsuarioComponent } from './rutas/usuarios/registro-usuario/registro-usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +31,14 @@ import { CrudComponent } from './rutas/crud/crud.component';
     RutaGestioEventosComponent,
     NoEncontradoComponent,
     RutaAdministrarRolesComponent,
-    CrudComponent
+    RegistroUsuarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [

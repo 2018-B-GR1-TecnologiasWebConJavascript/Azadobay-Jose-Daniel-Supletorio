@@ -1,0 +1,71 @@
+<h3> Registro </h3>
+
+<p> Registrese </p>
+
+
+<form (submit)="crearUsuario()">
+  
+  <div>
+    <label for="nombre"> Nombre </label>
+    
+    <!-- Banana box modelo -->
+    <!--  Two way data binding -->
+    <!-- Componente al HTML-->
+    <!-- Del HTML al Componente-->
+    <!-- {{usuario.nombres}}-->
+    
+    <input
+      id="nombre"
+      name="nombre"
+      type="text"
+      placeholder="Ingrese el nombre"
+      [(ngModel)]="usuario.nombre"
+    >
+  </div>
+  
+  <div>
+    <label for="correo"> Correo </label>
+    
+    <input
+      id="correo"
+      name="correo"
+      type="text"
+      placeholder="Ingrese el correo"
+      [(ngModel)]="usuario.correo"
+    >
+  
+  </div>
+  
+  <div>
+    
+    <label for="password"> Password </label>
+    <input
+      id="password"
+      name="password"
+      type="text"
+      placeholder="Ingrese el password"
+      [(ngModel)]="usuario.password"
+    >
+  </div>
+  
+  <div>
+    <label for="fN"> Fecha de Nacimiento </label>
+    
+    <input
+      id="fN"
+      name="fN"
+      type="text"
+      placeholder="Ingrese la fecha"
+      [(ngModel)]="usuario.fechaNacimiento"
+    >
+  </div>
+  
+  <button type="button"> Button</button>
+  
+  <button type="reset"> Reset</button>
+  
+  <button type="submit"> Submit</button>
+
+
+</form>
+

@@ -6,9 +6,11 @@
   <button> BUSCAR </button>
 </div>
 
+<br>
+
 
 <div>
-  <table>
+  <table width=100% border=1>
     
     <!-- tr -- table row -->
     <tr>
@@ -30,8 +32,12 @@
       
       
       <td>
-        <button (click)="eliminar(u)"> Eliminar </button>
-       </td>
+        <button (click)="eliminar(u)"> Delete </button>
+  
+        <button (click)="eliminar(u)"> Update </button>
+      </td>
+  
+      
     </tr>
     
     
@@ -40,3 +46,12 @@
     <!-- *ngFor   Itera un Arreglo -->
   </table>
 </div>
+
+<br>
+
+
+  <a routerLink="/home/crearUsuario">
+    <button>
+      CREAR
+    </button>
+  </a>

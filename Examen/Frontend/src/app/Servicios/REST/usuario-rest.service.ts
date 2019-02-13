@@ -11,6 +11,7 @@ import {Usuario} from "../../Interfaces/Usuarios";
 export class UsuarioRestService {
 
   nombreModelo = '/Usuario';
+
   constructor(private readonly _httpClient: HttpClient) {
 
   }
@@ -33,7 +34,27 @@ export class UsuarioRestService {
   delete(id: number): Observable<Usuario> {
     return this._httpClient
       .delete(environment.url + this.nombreModelo + `/${id}`)
-      .pipe(map(r => <Usuario> r)); // Castear
+      .pipe(map(u => <Usuario> u)); // Castear
+  }
+
+
+  crear(usuario: Usuario): Observable<Usuario> {
+
+    const objeto: Usuario = {
+      nombre: usuario.nombre,
+      correo: usuario.correo,
+      password: usuario.password,
+      fechaNacimiento: usuario.fechaNacimiento
+    };
+
+    const url = environment.url + this.nombreModelo;
+
+    return this._httpClient
+      .post(url,objeto)
+      .pipe(
+        map(u => <Usuario> u)
+      );
+
   }
 
 
