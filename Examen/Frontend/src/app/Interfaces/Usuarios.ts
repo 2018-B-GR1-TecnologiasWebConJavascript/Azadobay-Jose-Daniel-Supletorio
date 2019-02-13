@@ -1,9 +1,9 @@
 
 export interface Usuario {
-  id: number;
-  nombres: 'string';
-  correo: 'string';
-  password: 'string';
-  fecha_nacimiento: number;
+  id?: number;
+  nombre: string;
+  correo: string;
+  password: string;
+  fechaNacimiento: string ;
 
 }

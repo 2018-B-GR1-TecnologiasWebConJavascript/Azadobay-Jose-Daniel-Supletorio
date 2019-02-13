@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Paciente} from "../../Interfaces/Paciente";
-import {PacienteRestService} from "../../Servicios/REST/paciente-rest.service";
-import {Usuario} from "../../Interfaces/Usuarios";
-import {UsuarioRestService} from "../../Servicios/REST/usuario-rest.service";
+import {UsuarioRestService} from "../../../Servicios/REST/usuario-rest.service";
+import {Usuario} from "../../../Interfaces/Usuarios";
 
 @Component({
   selector: 'app-ruta-gestion-usuarios',
@@ -22,6 +20,12 @@ export class RutaGestionUsuariosComponent implements OnInit {
 
   ngOnInit() {
 
+    this.buscarTodos();
+
+  }
+
+
+  buscarTodos(){
     const objeto$ = this._usuarioRS.buscarTodo();
 
     objeto$
@@ -32,10 +36,9 @@ export class RutaGestionUsuariosComponent implements OnInit {
         }, (error) => {
           console.error('Error', error);
         }
-      )
-
-
+      );
   }
+
 
   eliminar(usuario: Usuario) {
     const objetoEliminado$ = this._usuarioRS.delete(usuario.id);
@@ -46,9 +49,10 @@ export class RutaGestionUsuariosComponent implements OnInit {
           console.log('Se elimino:', objetoEliminado);
 
           const indice = this.usuarios
-            .findIndex((r) => r.id === usuario.id);
+            .findIndex(r => r.id === usuario.id);
 
           this.usuarios.splice(indice, 1);
+          //this.buscarTodos();
 
 
         },

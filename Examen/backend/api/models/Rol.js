@@ -19,7 +19,7 @@ module.exports = {
 
     usuarios:{
       collection: 'Usuario',
-      via: 'rol',
+      via: 'rolUsuario',
       through: 'RolesPorUsuario'
     }
 

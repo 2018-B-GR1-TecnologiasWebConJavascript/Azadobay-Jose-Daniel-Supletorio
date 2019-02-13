@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Paciente} from "../../Interfaces/Paciente";
-import {PacienteRestService} from "../../Servicios/REST/paciente-rest.service";
-import {Usuario} from "../../Interfaces/Usuarios";
-import {UsuarioRestService} from "../../Servicios/REST/usuario-rest.service";
-import {Evento} from "../../Interfaces/Evento";
-import {EventoRestService} from "../../Servicios/REST/evento-rest-service";
+import {EventoRestService} from "../../../Servicios/REST/evento-rest-service";
+import {Evento} from "../../../Interfaces/Evento";
+
 
 @Component({
   selector: 'app-ruta-gestio-eventos',

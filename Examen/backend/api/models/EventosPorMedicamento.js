@@ -11,9 +11,16 @@ module.exports = {
     idEvento:{
       model:'Evento'
     },
+
     idMedicamento: {
       model: 'Medicamento'
-    }
+    },
+
+    detalleFacturas: {
+      collection: 'FacturaDetalle',
+      via: 'idEventosHijos',
+    },
+
   },
 
 };

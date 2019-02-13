@@ -17,9 +17,10 @@ module.exports = {
       type: 'string',
       required: true
     },
-    fecha_nacimiento: {
+    fechaNacimiento: {
       type: 'string',
-      required: true
+      required: true,
+      columnName: 'fecha_nacimiento' ,
     },
 
     numeroHijos: {
@@ -29,12 +30,17 @@ module.exports = {
 
     seguroSocial: {
       type: 'boolean',
-      defaultsTo: true
+      defaultsTo: true,
+      columnName: 'seguro_social'
     },
 
     medicamentos: {
       collection: 'Medicamento',
       via: 'idPaciente',
+    },
+
+    idUsuario: {
+      model:'Usuario'
     }
 
 
