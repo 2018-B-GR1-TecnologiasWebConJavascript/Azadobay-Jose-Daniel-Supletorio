@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RutaAdministrarRolesComponent implements OnInit {
 
+  Roles = ['Administrador', 'Usuario'];
+  RolesSelect = ['Administrador', 'Usuario'];
+
+  user = {
+    name:"David",
+    correo:"Dawctes@gmail.com",
+    fNacimiento:"20/08/94"
+  }
+
   constructor() { }
 
   ngOnInit() {

@@ -40,17 +40,35 @@ export class UsuarioRestService {
 
   crear(usuario: Usuario): Observable<Usuario> {
 
-    const objeto: Usuario = {
-      nombre: usuario.nombre,
-      correo: usuario.correo,
-      password: usuario.password,
-      fechaNacimiento: usuario.fechaNacimiento
-    };
+
 
     const url = environment.url + this.nombreModelo;
 
     return this._httpClient
-      .post(url,objeto)
+      .post(url,usuario)
+      .pipe(
+        map(u => <Usuario> u)
+      );
+
+  }
+
+
+  usuarioPorId(id : number | string): Observable<Usuario> {
+    const url = environment.url + this.nombreModelo + '/' + id;
+
+    return this._httpClient
+      .get(url)
+      .pipe(
+        map(u => <Usuario> u)
+      );
+
+  }
+
+  actualizar(usuario: Usuario){
+    const url = environment.url + this.nombreModelo + '/' + usuario.id;
+
+    return this._httpClient
+      .put(url,usuario)
       .pipe(
         map(u => <Usuario> u)
       );

@@ -1,9 +1,9 @@
-<h1>  LISTA DE USUARIOS </h1>
+<h1> LISTA DE USUARIOS </h1>
 
 <div>
   <label for="usuarioABuscar"></label>
   <input id="usuarioABuscar" type="text">
-  <button> BUSCAR </button>
+  <button> BUSCAR</button>
 </div>
 
 <br>
@@ -15,31 +15,39 @@
     <!-- tr -- table row -->
     <tr>
       <!-- tr -- table header-->
-      <th> Codigo </th>
-      <th> Nombre </th>
-      <th> Password </th>
-      <th> Fecha Nacimiento </th>
-      <th> Correo </th>
-      <th> Accion </th>
+      <th> Codigo</th>
+      <th> Nombre</th>
+      <th> Password</th>
+      <th> Fecha Nacimiento</th>
+      <th> Correo</th>
+      <th> Accion</th>
     </tr>
     
     <tr *ngFor="let u of usuarios">
       <td> {{u.id }} </td>
       <td> {{u.nombre}} </td>
       <td> {{u.password }} </td>
-      <td> {{u.fecha_nacimiento}} </td>
+      <td> {{u.fechaNacimiento}} </td>
       <td> {{u.correo}} </td>
       
       
       <td>
-        <button (click)="eliminar(u)"> Delete </button>
+        <!-- Property Binding [Propiedad Js] -->
+        <button (click)="eliminar(u)">Borrar</button>
   
-        <button (click)="eliminar(u)"> Update </button>
+        <a [routerLink]="['/home','actualizar-usuario',u.id]">
+          <button>Actualizar</button>
+        </a>
+  
+        <a [routerLink]="['/home','gestion-roles',u.id]">
+          <button>Roles</button>
+        </a>
+        
+        
       </td>
-  
-      
-    </tr>
     
+    
+    </tr>
     
     
     <!-- Directivas con importantes -->
@@ -50,8 +58,8 @@
 <br>
 
 
-  <a routerLink="/home/crearUsuario">
-    <button>
-      CREAR
-    </button>
-  </a>
+<a routerLink="/home/crear-usuario">
+  <button>
+    CREAR
+  </button>
+</a>

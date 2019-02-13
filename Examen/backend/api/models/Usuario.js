@@ -11,7 +11,6 @@ module.exports = {
 
   attributes: {
 
-
     nombre: {
       type: 'string'
     },
@@ -45,6 +44,11 @@ module.exports = {
       collection: 'Rol',
       via: 'idUsuario',
       through: 'RolesPorUsuario'
+    },
+
+    pacientes: {
+      collection: 'Paciente',
+      via: 'idUsuario'
     }
   },
 

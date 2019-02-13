@@ -8,6 +8,8 @@ import {RutaGestionPacientesComponent} from "./rutas/ruta-gestion-pacientes/ruta
 import {RutaGestionMedicamentosComponent} from "./rutas/ruta-gestion-medicamentos/ruta-gestion-medicamentos.component";
 import {RutaGestioEventosComponent} from "./rutas/ruta-gestion-eventos/ruta-gestio-eventos.component";
 import {RegistroUsuarioComponent} from "./rutas/usuarios/registro-usuario/registro-usuario.component";
+import {ActualizarUsuarioComponent} from "./rutas/usuarios/actualizar-usuario/actualizar-usuario.component";
+import {RutaAdministrarRolesComponent} from "./rutas/usuarios/ruta-administrar-roles/ruta-administrar-roles.component";
 
 
 const routes: Routes = [
@@ -39,8 +41,16 @@ const routes: Routes = [
         component: RutaGestioEventosComponent
       },
       {
-        path: 'crearUsuario',
+        path: 'crear-usuario',
         component: RegistroUsuarioComponent
+      },
+      {
+        path: 'actualizar-usuario/:idUsuario',
+        component: ActualizarUsuarioComponent
+      },
+      {
+        path: 'gestion-roles/:idUsuario',
+        component: RutaAdministrarRolesComponent
       },
     ]
   },

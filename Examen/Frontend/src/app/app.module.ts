@@ -19,6 +19,7 @@ import {RutaGestionUsuariosComponent} from "./rutas/usuarios/ruta-gestion-usuari
 import {RutaAdministrarRolesComponent} from "./rutas/usuarios/ruta-administrar-roles/ruta-administrar-roles.component";
 import {FormsModule} from "@angular/forms";
 import { RegistroUsuarioComponent } from './rutas/usuarios/registro-usuario/registro-usuario.component';
+import { ActualizarUsuarioComponent } from './rutas/usuarios/actualizar-usuario/actualizar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegistroUsuarioComponent } from './rutas/usuarios/registro-usuario/regi
     RutaGestioEventosComponent,
     NoEncontradoComponent,
     RutaAdministrarRolesComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    ActualizarUsuarioComponent
   ],
   imports: [
     BrowserModule,
