@@ -56,7 +56,7 @@ module.exports = {
     },
 
     estado: {
-      type: 'boolean',
+      type: 'string',
       isIn: [
         'En Compra',
         'Pagado',

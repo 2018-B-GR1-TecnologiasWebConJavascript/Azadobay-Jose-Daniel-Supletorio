@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {PacienteRestService} from "../../Servicios/REST/paciente-rest.service";
-import {Paciente} from "../../Interfaces/Paciente";
+import {Paciente} from "../../../Interfaces/Paciente";
+import {PacienteRestService} from "../../../Servicios/REST/paciente-rest.service";
+
+
 
 @Component({
   selector: 'app-ruta-gestion-pacientes',
