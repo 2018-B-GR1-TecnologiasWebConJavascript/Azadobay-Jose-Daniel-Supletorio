@@ -8,10 +8,12 @@
 module.exports = {
 
   attributes: {
+
     idUsuario:{
       model:'Usuario',
       columnName: 'id_usuario'
     },
+
     rolUsuario: {
       model: 'Rol',
       columnName: 'rol_usuario'
