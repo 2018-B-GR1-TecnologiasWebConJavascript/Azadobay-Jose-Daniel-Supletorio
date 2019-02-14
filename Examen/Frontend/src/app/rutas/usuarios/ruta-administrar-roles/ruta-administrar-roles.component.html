@@ -13,7 +13,8 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container"
+     *ngIf="usuarioActualizar">
   
   <div class="row">
     <div class="col-md-4">
@@ -21,36 +22,55 @@
         <div class="card-body">
           <br>
           <h3>Usuario</h3>
-          <h1>{{user.name}}</h1>
-          
+          <h6>{{usuarioActualizar.nombre}}</h6>
+          <h6>{{usuarioActualizar.correo}}</h6>
+          <h6>{{usuarioActualizar.fechaNacimiento}}</h6>
+          <h6>{{usuarioActualizar.password}}</h6>
         </div>
       </div>
     </div>
-    <div class="col-md-4">Roles Existentes
+    <div class="col-md-4">Roles del Usuario
       
-      <div *ngFor="let item of Roles">
-        <div class="card text-center">
-          <div class="card-body d-flex justify-content-between align-items-center">
-            {{item}}
-            <button class="btn btn-danger" (click)="deleteRole(item.id)">Eliminar</button>
+      
+      <tr>
+        <!-- tr -- table header-->
+        <th> Rol</th>
+      </tr>
+      
+      
+      <tr *ngFor="let u of usuarioActualizar.roles">
+        <td> {{u.nombre}} </td>
+        
+        <!--
+        
+        <h6>{{usuarioActualizar.roles}}</h6>
+        <div *ngFor="let item of roles">
+          <div class="card text-center">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              {{item}}
+              <button class="btn btn-danger" (click)="deleteRole(item.id)">Eliminar</button>
+            </div>
           </div>
         </div>
-      </div>
-    
+      -->
     </div>
     
     <div class="col-md-4">Agregar nuevo Rol
       <div class="card">
         <div class="form-group">
           
-          <select class="form-control">
-            <option>Administrador</option>
-            <option>Usuario</option>
+          <select class="form-control"
+                  #rolesOpc>
+           
+            <option
+                    *ngFor="let r of roles" [value]="r.id" > {{r.nombre}}</option >
           
           </select>
-          
+        
         </div>
-        <button type="button" class="btn btn-primary">Agregar nuevo Rol</button>
+        <button type="button" class="btn btn-primary" (click)="agregarRol(rolesOpc.value)">
+          Agregar nuevo Rol
+        </button>
       </div>
     </div>
   

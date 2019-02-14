@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Route, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {UsuarioRestService} from "../../../Servicios/REST/usuario-rest.service";
 import {Usuario} from "../../../Interfaces/Usuarios";
 import {NgForm} from "@angular/forms";
@@ -19,13 +19,16 @@ export class ActualizarUsuarioComponent implements OnInit {
     private readonly _activateRoute: ActivatedRoute,
     private readonly _userRS: UsuarioRestService,
     private readonly _route: Router
-
   ) {
 
   }
 
   ngOnInit() {
 
+    this.getusuario();
+  }
+
+  getusuario(){
     const objeto$ = this._activateRoute.params;
 
     objeto$
@@ -63,6 +66,7 @@ export class ActualizarUsuarioComponent implements OnInit {
           ];
 
           alert('Usuario '+user.nombre+' actualizado');
+
           this._route.navigate(url);
 
           console.log(user);
@@ -70,7 +74,6 @@ export class ActualizarUsuarioComponent implements OnInit {
         , (error) => {
             console.log(error);
         });
-
   }
 
 }

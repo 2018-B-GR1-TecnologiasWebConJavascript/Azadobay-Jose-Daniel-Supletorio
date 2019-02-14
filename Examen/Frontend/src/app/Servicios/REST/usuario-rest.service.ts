@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {environment} from "../../../environments/environment";
 import {Usuario} from "../../Interfaces/Usuarios";
+import {Rol} from "../../Interfaces/Rol";
 
 @Injectable()
 
@@ -75,5 +76,16 @@ export class UsuarioRestService {
 
   }
 
+  getRoles(){
+    const objeto$ = this._httpClient.get(environment.url + '/rol' ).pipe(
+      map( // Esto es solo para castear a empresa.
+        (respuesta) => {
+          return <Rol[]>respuesta;
+        }
+      )
+    );
+
+    return objeto$;
+  }
 
 }
