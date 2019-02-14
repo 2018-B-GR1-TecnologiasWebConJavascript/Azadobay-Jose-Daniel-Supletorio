@@ -29,17 +29,17 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">Roles del Usuario
+    <div class="col-md-4">
       
       
       <tr>
         <!-- tr -- table header-->
-        <th> Rol</th>
+        <th>Roles del Usuario</th>
       </tr>
-      
       
       <tr *ngFor="let u of usuarioActualizar.roles">
         <td> {{u.nombre}} </td>
+        <td> <button (click)="eliminarRolUsuario(u.id)" > X </button> </td>
         
         <!--
         

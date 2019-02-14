@@ -14,10 +14,13 @@ export class RutaAdministrarRolesComponent implements OnInit {
 
   usuarioActualizar: Usuario;
   roles: Rol[];
+
   rolesUsuario: rolesPorUsuario = {
     idUsuario: '',
     rolUsuario: ''
   };
+
+  rolUsuarioActualizar: rolesPorUsuario;
 
 
   constructor(
@@ -71,8 +74,6 @@ export class RutaAdministrarRolesComponent implements OnInit {
   }
 
   agregarRol(id) {
-
-
     if (this.validarRol(parseInt(id)) >= 0) {
       alert('El Usuario ya tiene ese Rol');
 
@@ -87,8 +88,7 @@ export class RutaAdministrarRolesComponent implements OnInit {
         .subscribe(
           (respuesta: rolesPorUsuario) => {
             console.log(respuesta);
-            this.getusuario();  
-
+            this.getusuario();
           }, (error) => {
             console.error('Error', error);
           }
@@ -105,6 +105,32 @@ export class RutaAdministrarRolesComponent implements OnInit {
       ro.id === idHtml);
 
     return encontrado;
+
+  }
+
+  eliminarRolUsuario(rol) {
+
+    const objeto$ = this._userRS.buscarRolUsuarioPorId(this.usuarioActualizar.id, rol);
+
+    objeto$
+      .subscribe(
+        (respuesta: rolesPorUsuario) => {
+          this.rolUsuarioActualizar = respuesta[0];
+
+          const objetoEliminado$ = this._userRS.deleteRolUsuario(this.rolUsuarioActualizar.id);
+          objetoEliminado$
+            .subscribe((RolEliminado: rolesPorUsuario) => {
+                console.log('Rol Eliminado id Usuario:');
+                this.getusuario();
+              },
+              (error) => {
+                console.log(error);
+              });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
 
   }
 

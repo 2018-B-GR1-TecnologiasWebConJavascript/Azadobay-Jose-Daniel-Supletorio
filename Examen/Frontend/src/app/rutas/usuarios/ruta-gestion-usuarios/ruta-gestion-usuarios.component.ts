@@ -54,14 +54,11 @@ export class RutaGestionUsuariosComponent implements OnInit {
           this.usuarios.splice(indice, 1);
           //this.buscarTodos();
 
-
         },
         (error) => {
           console.error('Error', error);
         }
       );
-
-
   }
 
 }
