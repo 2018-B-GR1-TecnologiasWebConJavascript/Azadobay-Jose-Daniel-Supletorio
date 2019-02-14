@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container"
+      *ngIf="evento_medicamento"
+     >
+  
+  
+  <div class="row"
+       *ngIf="evento">
+    <div class="col-md-4">
+      <h5>Evento</h5>
+      <div class="card">
+        <div class="card-body">
+          <br>
+          <h4>{{evento.nombre}}</h4>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4"
+         *ngIf="evento">
+      <h5>Medicamentos del Evento</h5>
+      <div class="card">
+        <tr *ngFor="let u of evento.medicamentos">
+          <td> {{u.nombre}} </td>
+        </tr>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h5>Listar medicamentos</h5>
+      <div class="card">
+        <div class="form-group">
+          <select #selectedMedicamento class="form-control">
+            <option *ngFor="let medicamento  of medicamentos" [value]="medicamento.id">{{medicamento.nombre}}</option>
+          </select>
+        </div>
+        <br>
+        <button (click)="agregarMedicamento(selectedMedicamento.value)">Añadir Medicamento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

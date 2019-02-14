@@ -22,7 +22,7 @@ import {PacienteRestService} from "./Servicios/REST/paciente-rest.service";
 import {UsuarioRestService} from "./Servicios/REST/usuario-rest.service";
 import {EventoRestService} from "./Servicios/REST/evento-rest-service";
 import {MedicamentoRestService} from "./Servicios/REST/medicamento-rest.service";
-
+import {EventosMedicamentosComponent} from "./rutas/medicamentos/eventos-medicamentos/eventos-medicamentos.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import {MedicamentoRestService} from "./Servicios/REST/medicamento-rest.service"
     RegistroUsuarioComponent,
     ActualizarUsuarioComponent,
     GestionFacturasComponent,
-    BuscarFacturasComponent
+    BuscarFacturasComponent,
+    EventosMedicamentosComponent
   ],
   imports: [
     BrowserModule,
