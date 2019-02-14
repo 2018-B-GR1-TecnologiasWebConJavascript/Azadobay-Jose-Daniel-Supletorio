@@ -12,6 +12,7 @@ import {RutaAdministrarRolesComponent} from "./rutas/usuarios/ruta-administrar-r
 import {BuscarFacturasComponent} from "./rutas/facturas/buscar-facturas/buscar-facturas.component";
 import {GestionFacturasComponent} from "./rutas/facturas/gestion-facturas/gestion-facturas.component";
 import {RutaLoginComponent} from "./rutas/usuarios/ruta-login/ruta-login.component";
+import {EventosMedicamentosComponent} from "./rutas/medicamentos/eventos-medicamentos/eventos-medicamentos.component";
 
 
 const routes: Routes = [
@@ -61,6 +62,10 @@ const routes: Routes = [
       {
         path: 'gFacturas',
         component: GestionFacturasComponent
+      },
+      {
+        path: 'eMedicamento/:idEvento',
+        component: EventosMedicamentosComponent
       },
     ]
   },

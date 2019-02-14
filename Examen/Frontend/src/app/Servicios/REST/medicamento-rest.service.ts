@@ -16,7 +16,6 @@ export class MedicamentoRestService{
 
   }
 
-
   buscarTodo(): Observable<Medicamento[]> {
     // http client es un observable
     const objeto$ = this._httpClient.get(environment.url + this.nombreModelo).pipe(
@@ -29,6 +28,7 @@ export class MedicamentoRestService{
 
     return objeto$;
   }
+
 
 
 }

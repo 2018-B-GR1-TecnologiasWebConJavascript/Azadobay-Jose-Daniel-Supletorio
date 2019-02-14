@@ -27,8 +27,13 @@
       
       <td>
         <button (click)="eliminar(empresa)"> Eliminar </button>
-        
+  
         <button (click)="eliminar(empresa)"> Actualizar </button>
+        
+        <a [routerLink]="['/home','eMedicamento',e.id]">
+          <button>Añadir hijos</button>
+        </a>
+
       </td>
     </tr>
     
