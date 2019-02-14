@@ -12,7 +12,8 @@ module.exports = {
   attributes: {
 
     nombre: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     correo: {
       type: 'string',
@@ -48,6 +49,11 @@ module.exports = {
 
     pacientes: {
       collection: 'Paciente',
+      via: 'idUsuario'
+    },
+
+    facturas: {
+      collection: 'FacturaCabecera',
       via: 'idUsuario'
     }
   },

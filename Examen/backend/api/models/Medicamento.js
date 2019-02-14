@@ -39,8 +39,7 @@ module.exports = {
 
 
     idPaciente: {
-      collection: 'Paciente',
-      via:'medicamentos'
+      model:'Paciente'
     },
 
     eventos:{

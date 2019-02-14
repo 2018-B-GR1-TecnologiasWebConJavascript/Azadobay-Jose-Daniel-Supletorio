@@ -1,9 +1,10 @@
+import {Medicamento} from "./Medicamento";
+
 export interface Evento {
 
   id: number;
   nombre: 'string';
   fechaEvento: 'string';
-
-  medicamentos: number;
+  medicamentos: Medicamento[];
 
 }

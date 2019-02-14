@@ -74,6 +74,7 @@ export class RutaAdministrarRolesComponent implements OnInit {
   }
 
   agregarRol(id) {
+
     if (this.validarRol(parseInt(id)) >= 0) {
       alert('El Usuario ya tiene ese Rol');
 

@@ -12,29 +12,36 @@
 
 <body>
 <div class="container"
-      *ngIf="evento_medicamento"
-     >
+     *ngIf="evento"
+>
   
   
-  <div class="row"
-       *ngIf="evento">
+  <div class="row">
     <div class="col-md-4">
       <h5>Evento</h5>
       <div class="card">
         <div class="card-body">
           <br>
-          <h4>{{evento.nombre}}</h4>
+          
+          <h5>{{evento.id}}</h5>
+          <h5>{{evento.nombre}}</h5>
+          <h6>{{evento.fechaEvento}}</h6>
         </div>
       </div>
     </div>
     
-    <div class="col-md-4"
-         *ngIf="evento">
+    <div class="col-md-4">
       <h5>Medicamentos del Evento</h5>
       <div class="card">
+        
         <tr *ngFor="let u of evento.medicamentos">
           <td> {{u.nombre}} </td>
+          
+          <td>
+            <button (click)="eliminarHijo(u.id)"> X</button>
+          </td>
         </tr>
+      
       </div>
     </div>
     
@@ -42,14 +49,49 @@
       <h5>Listar medicamentos</h5>
       <div class="card">
         <div class="form-group">
-          <select #selectedMedicamento class="form-control">
-            <option *ngFor="let medicamento  of medicamentos" [value]="medicamento.id">{{medicamento.nombre}}</option>
+          <select #selectedMedicamento
+                  class="form-control">
+            
+            <option *ngFor="let medicamento  of medicamentos"
+                    [value]="medicamento.id">
+              {{medicamento.nombre}}
+            
+            </option>
           </select>
         </div>
+  
         <br>
-        <button (click)="agregarMedicamento(selectedMedicamento.value)">Añadir Medicamento</button>
+        <form #precioB="ngForm"
+              novalidate
+        >
+          <div *ngIf="evento_medicamento">
+      
+            <label for="precioBase"> Precio Base</label>
+            <input id="precioBase"
+                   name="precioBase"
+                   type="text"
+                   placeholder="Ingrese el precio"
+                   [(ngModel)]="evento_medicamento.precioBase"
+                   required
+                   #controlPB
+            >
+    
+          </div>
+        </form>
+        
+        
+        <br>
+        
+        
+        <button (click)="agregarMedicamento(selectedMedicamento.value)"
+                [disabled]="precioB.invalid">
+          Añadir Medicamento
+        </button>
       </div>
+  
+     
     </div>
+
   </div>
 </div>
 

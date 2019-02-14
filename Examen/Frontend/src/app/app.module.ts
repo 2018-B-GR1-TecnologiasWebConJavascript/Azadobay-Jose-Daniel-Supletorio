@@ -23,6 +23,7 @@ import {UsuarioRestService} from "./Servicios/REST/usuario-rest.service";
 import {EventoRestService} from "./Servicios/REST/evento-rest-service";
 import {MedicamentoRestService} from "./Servicios/REST/medicamento-rest.service";
 import {EventosMedicamentosComponent} from "./rutas/medicamentos/eventos-medicamentos/eventos-medicamentos.component";
+import { RutaPrincipalComponent } from './rutas/ruta-principal/ruta-principal.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {EventosMedicamentosComponent} from "./rutas/medicamentos/eventos-medicam
     ActualizarUsuarioComponent,
     GestionFacturasComponent,
     BuscarFacturasComponent,
-    EventosMedicamentosComponent
+    EventosMedicamentosComponent,
+    RutaPrincipalComponent
   ],
   imports: [
     BrowserModule,
