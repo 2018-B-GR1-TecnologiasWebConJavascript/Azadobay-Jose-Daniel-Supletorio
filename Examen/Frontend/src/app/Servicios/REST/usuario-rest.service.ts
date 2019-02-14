@@ -5,6 +5,7 @@ import {map} from "rxjs/operators";
 import {environment} from "../../../environments/environment";
 import {Usuario} from "../../Interfaces/Usuarios";
 import {Rol} from "../../Interfaces/Rol";
+import {rolesPorUsuario} from "../../Interfaces/rolesPorUsuario";
 
 @Injectable()
 
@@ -40,9 +41,6 @@ export class UsuarioRestService {
 
 
   crear(usuario: Usuario): Observable<Usuario> {
-
-
-
     const url = environment.url + this.nombreModelo;
 
     return this._httpClient
@@ -86,6 +84,19 @@ export class UsuarioRestService {
     );
 
     return objeto$;
+  }
+
+  agregarRol(rolesU : rolesPorUsuario ){
+
+    return this._httpClient
+      .post(environment.url+ '/rolesporusuario',rolesU)
+      .pipe(
+        map(
+          (respuesta) => {
+            return <rolesPorUsuario> respuesta;
+          }
+        )
+      );
   }
 
 }

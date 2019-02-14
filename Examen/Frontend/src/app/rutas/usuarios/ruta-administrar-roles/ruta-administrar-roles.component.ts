@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UsuarioRestService} from "../../../Servicios/REST/usuario-rest.service";
 import {Usuario} from "../../../Interfaces/Usuarios";
 import {Rol} from "../../../Interfaces/Rol";
+import {rolesPorUsuario} from "../../../Interfaces/rolesPorUsuario";
 
 @Component({
   selector: 'app-ruta-administrar-roles',
@@ -13,7 +14,11 @@ export class RutaAdministrarRolesComponent implements OnInit {
 
   usuarioActualizar: Usuario;
   roles: Rol[];
-  opcionRol='';
+  rolesUsuario: rolesPorUsuario = {
+    idUsuario: '',
+    rolUsuario: ''
+  };
+
 
   constructor(
     private readonly _activateRoute: ActivatedRoute,
@@ -25,7 +30,7 @@ export class RutaAdministrarRolesComponent implements OnInit {
   ngOnInit() {
 
     this.getusuario();
-    this.getRoles()
+    this.getRoles();
   }
 
   getusuario() {
@@ -51,7 +56,7 @@ export class RutaAdministrarRolesComponent implements OnInit {
       );
   }
 
-  getRoles(){
+  getRoles() {
     const objeto$ = this._userRS.getRoles();
 
     objeto$
@@ -65,22 +70,41 @@ export class RutaAdministrarRolesComponent implements OnInit {
       );
   }
 
-  agregarRol(id){
+  agregarRol(id) {
 
-    alert(id)
-    this.validarRol(id);
+
+    if (this.validarRol(parseInt(id)) >= 0) {
+      alert('El Usuario ya tiene ese Rol');
+
+    } else {
+
+      this.rolesUsuario.idUsuario = this.usuarioActualizar.id;
+      this.rolesUsuario.rolUsuario = id;
+
+      const objeto$ = this._userRS.agregarRol(this.rolesUsuario);
+
+      objeto$
+        .subscribe(
+          (respuesta: rolesPorUsuario) => {
+            console.log(respuesta);
+            this.getusuario();  
+
+          }, (error) => {
+            console.error('Error', error);
+          }
+        );
+
+
+    }
   }
 
+  validarRol(idHtml) {
 
-  validarRol(idHtml){
+    console.log(typeof (idHtml))
+    const encontrado = this.usuarioActualizar.roles.findIndex(ro =>
+      ro.id === idHtml);
 
-
-    //alert(id);
-
-    console.log(this.usuarioActualizar.roles)
-    const encontrado = this.usuarioActualizar.roles.id.indexOf(idHtml);
-
-       alert(encontrado);
+    return encontrado;
 
   }
 

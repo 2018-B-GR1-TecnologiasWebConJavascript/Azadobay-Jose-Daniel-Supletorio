@@ -65,8 +65,6 @@ export class ActualizarUsuarioComponent implements OnInit {
             'gUsuarios'
           ];
 
-          alert('Usuario '+user.nombre+' actualizado');
-
           this._route.navigate(url);
 
           console.log(user);
