@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Usuario} from "../../../Interfaces/Usuarios";
+import {UsuarioRestService} from "../../../Servicios/REST/usuario-rest.service";
+import {FacturaService} from "../../../Servicios/REST/factura.service";
+import {Factura} from "../../../Interfaces/Factura";
 
 @Component({
   selector: 'app-buscar-facturas',
@@ -7,29 +12,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarFacturasComponent implements OnInit {
 
+  facturas: Factura[];
 
-
-  columns = ["Nombre Cliente", "Fecha", "Total", "Estado","Acciones"];
-
-  facturas =
-    [{
-      nombreCliente: 'Pikachu',
-      fecha: '2',
-      total: '30.00',
-      estado: '50.00'
-    },
-      {
-        nombreCliente: 'Pikachu',
-        fecha: '2',
-        total: '30.00',
-        Estado: '50.00'
-      }
-
-    ]
-
-  constructor() { }
+  constructor( private readonly _activateRoute: ActivatedRoute,
+  private readonly _facturaRestService: FacturaService ) { }
 
   ngOnInit() {
+
+    this.getfacturas();
+
   }
+
+  getfacturas() {
+    const objeto$ = this._activateRoute.params;
+
+    objeto$
+      .subscribe(
+        (parametros) => {
+          const objeto$ = this._facturaRestService.facturasPorEvento(parametros.idEvento);
+
+          objeto$
+            .subscribe(
+              (factura: Factura[]) => {
+                console.log(factura);
+                this.facturas = factura;
+              },
+              (error) => {
+                console.log(error);
+              }
+            );
+        }
+      );
+  }
+
+
+
 
 }

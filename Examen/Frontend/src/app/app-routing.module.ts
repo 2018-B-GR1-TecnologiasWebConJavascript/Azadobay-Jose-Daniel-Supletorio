@@ -67,15 +67,15 @@ const routes: Routes = [
         component: PublicEventComponent
       },
       {
-        path: 'buscarFactura/:id',
+        path: 'buscarFactura/:idEvento',
         component: BuscarFacturasComponent
       },
       {
-        path: 'gFacturas/:id',
+        path: 'gFacturas/:idFactura',
         component: GestionFacturasComponent
       },
       {
-        path: 'addItem',
+        path: 'addItem/:idFactura',
         component: AgregarItemComponent
       },
       {

@@ -5,6 +5,7 @@ import {map} from "rxjs/operators";
 import {environment} from "../../../environments/environment";
 import {Evento} from "../../Interfaces/Evento";
 import {Evento_medicamento} from "../../Interfaces/Evento_Medicamento";
+import {FacturaDetalle} from "../../Interfaces/FacturaDetalle";
 
 @Injectable()
 
@@ -48,5 +49,20 @@ export class EventoRestService{
     return this._httpClient.post(environment.url+'/eventospormedicamento',eventoM);
   }
 
+
+  agregarItem(objeto: FacturaDetalle): Observable<FacturaDetalle>{
+    return this._httpClient
+      .post(environment.url+'/facturadetalle',objeto)
+      .pipe(
+        map(u => <FacturaDetalle> u)
+      );
+  }
+  buscarHijosdeEvento(idEvento){
+    return this._httpClient.get(environment.url+'/eventospormedicamento?idEvento='+idEvento);
+  }
+
+  buscarEventoMedicamentoID(int){
+    return this._httpClient.get(environment.url+'/eventospormedicamento?id='+int);
+  }
 
 }

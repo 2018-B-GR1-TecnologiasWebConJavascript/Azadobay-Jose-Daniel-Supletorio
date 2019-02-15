@@ -1,14 +1,20 @@
+import {FacturaDetalle} from "./FacturaDetalle";
+import {Usuario} from "./Usuarios";
+import {Evento} from "./Evento";
+
 export interface Factura{
   id?:any;
-  nombre?:string;
-  cedula :number;
-  telefono :number;
+  nombre:string;
+  cedula:number;
+  telefono: number;
   direccion:string;
   correo:string;
   fecha:string;
   total:number;
   tipoPago:string;
   estado:string;
-  idUsuario:number;
-  idEvento:number;
+
+  detalles?: FacturaDetalle[];
+  idUsuario?: Usuario;
+  idEvento?: Evento;
 }
