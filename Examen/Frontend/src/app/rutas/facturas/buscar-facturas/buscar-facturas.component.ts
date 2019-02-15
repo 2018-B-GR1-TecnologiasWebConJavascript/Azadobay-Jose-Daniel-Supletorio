@@ -7,6 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarFacturasComponent implements OnInit {
 
+
+
+  columns = ["Nombre Cliente", "Fecha", "Total", "Estado","Acciones"];
+
+  facturas =
+    [{
+      nombreCliente: 'Pikachu',
+      fecha: '2',
+      total: '30.00',
+      estado: '50.00'
+    },
+      {
+        nombreCliente: 'Pikachu',
+        fecha: '2',
+        total: '30.00',
+        Estado: '50.00'
+      }
+
+    ]
+
   constructor() { }
 
   ngOnInit() {

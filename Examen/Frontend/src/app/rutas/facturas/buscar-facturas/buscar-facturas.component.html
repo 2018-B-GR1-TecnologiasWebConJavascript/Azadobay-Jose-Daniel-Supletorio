@@ -1,3 +1,59 @@
-<button routerLink="/home/gFacturas">
-IR A GESTION DE FACTURAS
-</button>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="container">
+  <h3>Lista de Facturas</h3>
+  
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Buscar</label>
+    <div class="col-sm-3">
+      <input type="email" class="form-control" id="">
+    </div>
+    <button type="button" class="btn btn-success ">Buscar</button>
+  </div>
+  
+  <div class="form-group row ">
+    <label class="col-sm-3 col-form-label">Filtrar por estado</label>
+    <div class="col-sm-3">
+      <select class="form-control" id="exampleFormControlSelect2">
+        <option> En compra</option>
+      </select>
+    </div>
+  </div>
+  
+  
+  <!--Fila para Detalle de Factura -->
+  <h5>Detalle de factura </h5>
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <table class="table table-striped">
+          <tr>
+            <!-- tr -- table header-->
+            <th> Nombre Cliente </th>
+            <th> Fecha </th>
+            <th> Total</th>
+            <th> Estado</th>
+            <th> Acciones</th>
+          </tr>
+          <tr *ngFor="let f of facturas">
+            <td> {{f.nombreCliente}} </td>
+            <td> {{f.fecha}}</td>
+            <td>{{f.total}}</td>
+            <td> {{f.estado}}</td>
+            <td>
+              <a [routerLink]="['/home','gFacturas',f.id]">
+                <button>Gestionar Facturas </button>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--Fin del contenedor-->
+</div>
+</body>
