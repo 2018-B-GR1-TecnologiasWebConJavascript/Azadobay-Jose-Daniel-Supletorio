@@ -2,55 +2,54 @@
 <h1> Admin </h1>
 <!-- ul -> unordered list-->
 <!-- ol -> ordered list-->
-<div *ngIf="roles">
-  <ul>
-    <!-- li -> list item -->
-   <!-- <li *ngIf="_autenticacionRS.esAdministrador(roles)">-->
-      <li>
-      <!-- a -> anchor -> ancla -->
-      <a routerLink="/home/gUsuarios"
-      >
+<!--<div *ngIf="roles">-->
+<div>
+    <ul>
+        <!-- li -> list item -->
+        <!-- <li *ngIf="_autenticacionRS.esAdministrador(roles)">-->
+        <li>
+            <!-- a -> anchor -> ancla -->
+            <a routerLink="/home/gUsuarios">
         Gestion de Usuarios
       </a>
-    </li>
-  
-    <!-- <li *ngIf="_autenticacionRS.esUsuario(roles)">  -->
-    <li>
-      <a routerLink="/home/gPacientes"
-      >
+        </li>
+
+        <!-- <li *ngIf="_autenticacionRS.esUsuario(roles)">  -->
+        <li>
+            <a routerLink="/home/gPacientes">
         Gestion de Pacientes
       </a>
-    </li>
-    
-    <!-- <li *ngIf="_autenticacionRS.esUsuario(roles)"> -->
-      <li>
-      <a routerLink="/home/gMedicamentos"
-      >
+        </li>
+
+        <!-- <li *ngIf="_autenticacionRS.esUsuario(roles)"> -->
+        <li>
+            <a routerLink="/home/gMedicamentos">
         Gestion de Medicamentos
       </a>
-    </li>
-    
-    
-    <li>
-      <a routerLink="/home/gEventos">Gestion de Eventos</a>
-    </li>
-    
-   <!-- <li *ngIf="_autenticacionRS.escliente(roles)"> -->
-      <li>
-      <a routerLink="/home/listaFacturas">Gestion de Facturas</a>
-    </li>
-  
-  
-  </ul>
-  
-  <button type="submit" (click)="prueba()"> PRUEBA
+        </li>
+
+
+        <li>
+            <a routerLink="/home/gEventos">Gestion de Eventos</a>
+        </li>
+
+        <!-- <li *ngIf="_autenticacionRS.escliente(roles)"> -->
+        <li>
+            <a routerLink="/home/listaFacturas">Gestion de Facturas</a>
+        </li>
+
+
+    </ul>
+
+    <button type="submit" (click)="prueba()"> PRUEBA
   </button>
-  
-  <br>
-  <body>
-  
-  <router-outlet></router-outlet>
-  <!-- p -> parrafo  -->
-  </body>
+
+    <br>
+
+    <body>
+
+        <router-outlet></router-outlet>
+        <!-- p -> parrafo  -->
+    </body>
 </div>
 <footer>Proyecto EPN</footer>

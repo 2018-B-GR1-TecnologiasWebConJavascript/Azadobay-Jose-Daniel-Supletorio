@@ -1,0 +1,27 @@
+<h3> Actualizar Usuario </h3>
+
+
+
+<form #actualizarForm="ngForm" novalidate (ngSubmit)="actualizarPaciente(actualizarForm)">
+
+    <div>
+        <label for="nombre"> Nombre </label>
+        <input id="nombre" name="nombre" type="text" placeholder="Ingrese el nombre" [(ngModel)]="paciente.nombres" required pattern="^[a-zA-Z_áéíóúñ\s]*$">
+    </div>
+    <div>
+        <label for="apellido"> Apellido </label>
+        <input id="apellido" name="apellido" type="text" placeholder="Ingrese el apellido" [(ngModel)]="paciente.apellidos" required pattern="^[a-zA-Z_áéíóúñ\s]*$">
+    </div>
+    <div>
+        <label for="fN"> Fecha de Nacimiento </label>
+        <input id="fN" name="fN" type="text" placeholder="Ingrese la fecha" [(ngModel)]="paciente.fechaNacimiento" required pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$">
+    </div>
+
+    <div>
+        <label for="numeroHijos"> numero de Hijos </label>
+        <input id="numeroHijos" name="numeroHijos" type="text" [(ngModel)]="paciente.numeroHijos" required pattern="[0-9]">
+    </div>
+    <button type="submit" [disabled]="actualizarForm.invalid">
+      Actualizar!
+    </button>
+</form>

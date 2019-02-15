@@ -36,4 +36,27 @@ export class RutaGestionPacientesComponent implements OnInit {
 
   }
 
+  eliminar(usuario: Paciente) {
+    const objetoEliminado$ = this._pacienteRS.delete(usuario.id);
+
+    objetoEliminado$
+      .subscribe(
+        (objetoEliminado: Paciente) => {
+          console.log('Se elimino:', objetoEliminado);
+
+          const indice = this.pacientes
+            .findIndex(r => r.id === usuario.id);
+
+          this.pacientes.splice(indice, 1);
+          //this.buscarTodos();
+
+        },
+        (error) => {
+          console.error('Error', error);
+        }
+      );
+  }
+
+
+
 }

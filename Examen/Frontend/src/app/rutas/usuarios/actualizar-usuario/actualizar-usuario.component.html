@@ -1,87 +1,40 @@
 <h3> Actualizar Usuario </h3>
 
 <div *ngIf="usuarioActualizar">
-  
-  
-  <form #actualizarForm="ngForm"
-        novalidate
-        (ngSubmit)="actualizarUsuario(actualizarForm)"
-  >
-    
-    <div>
-      <label for="nombre"> Nombre </label>
-      <input
-        id="nombre"
-        name="nombre"
-        type="text"
-        placeholder="Ingrese el nombre"
-        [(ngModel)]="usuarioActualizar.nombre"
-        #controlNombre="ngModel"
-        required
-        pattern="^[a-zA-Z_áéíóúñ\s]*$"
-      
-      >
-    </div>
-    
-    <div>
-      
-      <label for="correo"> Correo </label>
-      
-      <input
-        id="correo"
-        name="correo"
-        type="text"
-        placeholder="Ingrese el correo"
-        [(ngModel)]="usuarioActualizar.correo"
-        #correoControl="ngModel"
-        required
-        email
-      >
-    
-    </div>
-    
-    <div>
-      
-      <label for="password"> Password </label>
-      <input
-        id="password"
-        name="password"
-        type="text"
-        placeholder="Ingrese el password"
-        [(ngModel)]="usuarioActualizar.password"
-        #controlPass="ngModel"
-        required
-        maxlength="16"
-        minlength="8"
-        pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$"
-      
-      >
-    </div>
-    
-    <div>
-      <label for="fN"> Fecha de Nacimiento </label>
-      
-      <input
-        id="fN"
-        name="fN"
-        type="text"
-        placeholder="Ingrese la fecha"
-        [(ngModel)]="usuarioActualizar.fechaNacimiento"
-        #fechaControl="ngModel"
-        required
-        pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$"
-      >
-    </div>
-    
-    
-    <button type="submit"
-            [disabled]="actualizarForm.invalid">
+
+
+    <form #actualizarForm="ngForm" novalidate (ngSubmit)="actualizarUsuario(actualizarForm)">
+
+        <div>
+            <label for="nombre"> Nombre </label>
+            <input id="nombre" name="nombre" type="text" placeholder="Ingrese el nombre" [(ngModel)]="usuarioActualizar.nombre" #controlNombre="ngModel" required pattern="^[a-zA-Z_áéíóúñ\s]*$">
+        </div>
+
+        <div>
+
+            <label for="correo"> Correo </label>
+
+            <input id="correo" name="correo" type="text" placeholder="Ingrese el correo" [(ngModel)]="usuarioActualizar.correo" #correoControl="ngModel" required email>
+
+        </div>
+
+        <div>
+
+            <label for="password"> Password </label>
+            <input id="password" name="password" type="text" placeholder="Ingrese el password" [(ngModel)]="usuarioActualizar.password" #controlPass="ngModel" required maxlength="16" minlength="8" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$">
+        </div>
+
+        <div>
+            <label for="fN"> Fecha de Nacimiento </label>
+
+            <input id="fN" name="fN" type="text" placeholder="Ingrese la fecha" [(ngModel)]="usuarioActualizar.fechaNacimiento" #fechaControl="ngModel" required pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$">
+        </div>
+
+
+        <button type="submit" [disabled]="actualizarForm.invalid">
       Actualizar!
     </button>
-  </form>
+    </form>
 
 
 </div>
-
-
-

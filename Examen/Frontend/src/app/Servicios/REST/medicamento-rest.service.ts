@@ -51,4 +51,50 @@ deleteRolUsuario(id : number | string){
     .pipe(map(u => <Evento_medicamento>u)); // Castear
 
 }
+
+crear(medicamento: Medicamento): Observable<Medicamento> {
+  const url = environment.url + this.nombreModelo;
+
+  return this._httpClient
+    .post(url, medicamento)
+    .pipe(
+      map(u => <Medicamento>u)
+    );
+
+}
+
+medicamentoPorId(id: number | string): Observable<Medicamento> {
+  const url = environment.url + this.nombreModelo + '/' + id;
+
+  return this._httpClient
+    .get(url)
+    .pipe(
+      map(u => <Medicamento>u)
+    );
+
+}
+
+actualizar(medicamento: Medicamento) {
+  const url = environment.url + this.nombreModelo + '/' + medicamento.id;
+
+  return this._httpClient
+    .put(url, medicamento)
+    .pipe(
+      map(u => <Medicamento>u)
+    );
+
+}
+
+
+deleteMedicamento(id : number | string){
+
+  return this._httpClient
+    .delete(environment.url + '/medicamento' + `/${id}`)
+    .pipe(map(u => <rolesPorUsuario>u)); // Castear
+
+}
+
+
+
+
 }

@@ -1,125 +1,72 @@
 <h3> Registro </h3>
 
-<p> Registrese </p>
+
+<form #userForm="ngForm" novalidate (submit)="crearUsuario()">
 
 
-<form #userForm="ngForm"
-      novalidate
-      (submit)="crearUsuario()">
-  
-  
-  <div>
-    
-    
-    <!-- Banana box modelo -->
-    <!--  Two way data binding -->
-    <!-- Componente al HTML-->
-    <!-- Del HTML al Componente-->
-    <!-- {{usuario.nombres}}-->
-    <p *ngIf="nombreControl.errors"> Campo Nombre:
-      <span *ngIf="nombreControl.errors.required "> Vacio </span>
-      <span *ngIf="nombreControl.errors.pattern"> Solo se permiten letras </span>
-    </p>
-  
-    <p *ngIf="correoControl.errors"> Campo Correo :
-    <span *ngIf="correoControl.errors.required "> Vacio </span>
-    <span *ngIf="correoControl.errors.pattern"> No parece un email </span>
-  </p>
-  
-    <p *ngIf="controlPass.errors"> Campo Password :
-      <span *ngIf="controlPass.errors.required "> Vacio </span>
-      <span *ngIf="controlPass.errors.pattern"> debe tener al menos una
+    <div>
+
+        <p *ngIf="nombreControl.errors"> Campo Nombre:
+            <span *ngIf="nombreControl.errors.required "> Vacio </span>
+            <span *ngIf="nombreControl.errors.pattern"> Solo se permiten letras </span>
+        </p>
+
+        <p *ngIf="correoControl.errors"> Campo Correo :
+            <span *ngIf="correoControl.errors.required "> Vacio </span>
+            <span *ngIf="correoControl.errors.pattern"> No parece un email </span>
+        </p>
+
+        <p *ngIf="controlPass.errors"> Campo Password :
+            <span *ngIf="controlPass.errors.required "> Vacio </span>
+            <span *ngIf="controlPass.errors.pattern"> debe tener al menos una
         letra en mayuscula, un numero y un caracter especial</span>
-    </p>
-  
-    <p *ngIf="fechaControl.errors"> Email:
-    <span *ngIf="fechaControl.errors.required"> Campo vacio</span>
-    <span *ngIf="fechaControl.errors.pattern"> No es una fecha valida </span>
-    </p>
-    
-    <p *ngIf="userForm.invalid">
-      Se debe completar el formulario
-    </p>
-    <p *ngIf="userForm.valid">
-      Formulario Listo
-    </p>
-  
-  
-  
-  
-    <label for="nombre"> Nombre </label>
-    <input
-      id="nombre"
-      name="nombre"
-      type="text"
-      placeholder="Ingrese el nombre"
-      [(ngModel)]="usuario.nombre"
-      #nombreControl="ngModel"
-      required
-      pattern="^[a-zA-Z_áéíóúñ\s]*$"
-    
-    >
-  </div>
-  
-  <div>
-    
-    <label for="correo"> Correo </label>
-    
-    <input
-      id="correo"
-      name="correo"
-      type="text"
-      placeholder="Ingrese el correo"
-      [(ngModel)]="usuario.correo"
-      #correoControl="ngModel"
-      required
-      email
-    >
-  
-  </div>
-  
-  <div>
-    
-    <label for="password"> Password </label>
-    <input
-      id="password"
-      name="password"
-      type="text"
-      placeholder="Ingrese el password"
-      [(ngModel)]="usuario.password"
-      #controlPass="ngModel"
-      required
-      maxlength="16"
-      minlength="8"
-      pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$"
-    
-    >
-  </div>
-  
-  <div>
-    <label for="fN"> Fecha de Nacimiento </label>
-    
-    <input
-      id="fN"
-      name="fN"
-      type="text"
-      placeholder="Ingrese la fecha"
-      [(ngModel)]="usuario.fechaNacimiento"
-      #fechaControl="ngModel"
-      required
-      pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$"
-    >
-  </div>
-  
-  <button type="button"> Button</button>
-  
-  <button type="reset"> Reset</button>
-  
-  <button type="submit"
-          [disabled]="userForm.invalid"
-  > Submit
+        </p>
+
+        <p *ngIf="fechaControl.errors"> Email:
+            <span *ngIf="fechaControl.errors.required"> Campo vacio</span>
+            <span *ngIf="fechaControl.errors.pattern"> No es una fecha valida </span>
+        </p>
+
+        <p *ngIf="userForm.invalid">
+            Se debe completar el formulario
+        </p>
+        <p *ngIf="userForm.valid">
+            Formulario Listo
+        </p>
+
+
+
+
+        <label for="nombre"> Nombre </label>
+        <input id="nombre" name="nombre" type="text" placeholder="Ingrese el nombre" [(ngModel)]="usuario.nombre" #nombreControl="ngModel" required pattern="^[a-zA-Z_áéíóúñ\s]*$">
+    </div>
+
+    <div>
+
+        <label for="correo"> Correo </label>
+
+        <input id="correo" name="correo" type="text" placeholder="Ingrese el correo" [(ngModel)]="usuario.correo" #correoControl="ngModel" required email>
+
+    </div>
+
+    <div>
+
+        <label for="password"> Password </label>
+        <input id="password" name="password" type="text" placeholder="Ingrese el password" [(ngModel)]="usuario.password" #controlPass="ngModel" required maxlength="16" minlength="8" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$">
+    </div>
+
+    <div>
+        <label for="fN"> Fecha de Nacimiento </label>
+
+        <input id="fN" name="fN" type="text" placeholder="Ingrese la fecha" [(ngModel)]="usuario.fechaNacimiento" #fechaControl="ngModel" required pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$">
+    </div>
+
+    <button type="button"> Button</button>
+
+    <button type="reset"> Reset</button>
+
+    <button type="submit" [disabled]="userForm.invalid"> Submit
   </button>
 
 
 </form>
-

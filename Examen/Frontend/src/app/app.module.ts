@@ -28,6 +28,11 @@ import { PublicEventComponent } from './rutas/eventos/public-event/public-event.
 import { AgregarItemComponent } from './rutas/facturas/agregar-item/agregar-item.component';
 import { ListaFacturasComponent } from './rutas/facturas/lista-facturas/lista-facturas.component';
 import {FacturaService} from "./Servicios/REST/factura.service";
+import { RegistroPacienteComponent } from './rutas/pacientes/registro-paciente/registro-paciente.component';
+import { FormularioUsuarioComponent } from './componentes/formulario-usuario/formulario-usuario.component';
+import { ActualizarPacienteComponent } from './rutas/pacientes/actualizar-paciente/actualizar-paciente.component';
+import { RegistroMedicamentoComponent } from './rutas/medicamentos/registro-medicamento/registro-medicamento.component';
+import { ActualizarMedicamentoComponent } from './rutas/medicamentos/actualizar-medicamento/actualizar-medicamento.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,12 @@ import {FacturaService} from "./Servicios/REST/factura.service";
     RutaPrincipalComponent,
     PublicEventComponent,
     AgregarItemComponent,
-    ListaFacturasComponent
+    ListaFacturasComponent,
+    RegistroPacienteComponent,
+    FormularioUsuarioComponent,
+    ActualizarPacienteComponent,
+    RegistroMedicamentoComponent,
+    ActualizarMedicamentoComponent
   ],
   imports: [
     BrowserModule,

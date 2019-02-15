@@ -6,7 +6,7 @@ import {Usuario} from "../app/Interfaces/Usuarios";
 
 export const environment = {
   production: false,
-  url: 'http://localhost:1337',
+  url: 'http://192.168.0.13:1337',
   usuarioLogeado: '',
 
 };
