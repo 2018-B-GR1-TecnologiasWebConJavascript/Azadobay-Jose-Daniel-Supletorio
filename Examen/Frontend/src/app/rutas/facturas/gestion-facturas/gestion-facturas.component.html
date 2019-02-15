@@ -13,9 +13,9 @@
         <br>
         <form>
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label">Nombre</label>
+            <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail3">
+              <input type="email" class="form-control" id="nombre">
             </div>
           </div>
           <div class="form-group row">
@@ -25,15 +25,15 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label">telefono</label>
+            <label for="telefono" class="col-sm-3 col-form-label">telefono</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail3">
+              <input type="text" class="form-control" id="telefono">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label">Correo</label>
+            <label for="correo" class="col-sm-3 col-form-label">Correo</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail3">
+              <input type="email" class="form-control" id="correo">
             </div>
           </div>
         </form>
@@ -78,7 +78,9 @@
             </div>
             <br>
             <div class="row justify-content-md-center">
-              <button type="button" class="btn btn-secondary ">Añadir  Items</button>
+              <a [routerLink]="['/home','addItem']">
+                <button type="button" class="btn btn-secondary ">Añadir Item</button>
+              </a>
             </div>
           </div>
         </div>

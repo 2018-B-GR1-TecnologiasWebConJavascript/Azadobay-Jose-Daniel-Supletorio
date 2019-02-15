@@ -1,0 +1,35 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+</head>
+
+<div class="container">
+  
+  <h3> Add Item</h3>
+  <div class="form-group">
+    <label class="col-sm-6 col-form-label">  Medicamentos por Evento</label>
+    <h4 class=" bg-dark text-white ">{{evento.nombre}}</h4>
+    <div class="col-sm-6">
+      <select class="form-control" id="exampleFormControlSelect2">
+        <option> hijo 1 </option>
+      </select>
+    </div>
+  </div>
+  <!--Fin del Select evento hijo-->
+  <!--Precio Acordado-->
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="precioAcordado">Precio Acordado</label>
+      <input type="Text" class="form-control" id="precioAcordado" placeholder="25">
+    </div>
+  </div>
+  <!--Cantidad-->
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="cantidad">Cantidad</label>
+      <input type="Text" class="form-control" id="cantidad" placeholder="25">
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <button type="button" class="btn btn-info">Añadir Item</button>
+  </div>
+</div>

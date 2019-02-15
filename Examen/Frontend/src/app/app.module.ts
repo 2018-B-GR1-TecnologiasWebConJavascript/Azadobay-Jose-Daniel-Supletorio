@@ -24,6 +24,10 @@ import {EventoRestService} from "./Servicios/REST/evento-rest-service";
 import {MedicamentoRestService} from "./Servicios/REST/medicamento-rest.service";
 import {EventosMedicamentosComponent} from "./rutas/medicamentos/eventos-medicamentos/eventos-medicamentos.component";
 import { RutaPrincipalComponent } from './rutas/ruta-principal/ruta-principal.component';
+import { PublicEventComponent } from './rutas/eventos/public-event/public-event.component';
+import { AgregarItemComponent } from './rutas/facturas/agregar-item/agregar-item.component';
+import { ListaFacturasComponent } from './rutas/facturas/lista-facturas/lista-facturas.component';
+import {FacturaService} from "./Servicios/REST/factura.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { RutaPrincipalComponent } from './rutas/ruta-principal/ruta-principal.co
     GestionFacturasComponent,
     BuscarFacturasComponent,
     EventosMedicamentosComponent,
-    RutaPrincipalComponent
+    RutaPrincipalComponent,
+    PublicEventComponent,
+    AgregarItemComponent,
+    ListaFacturasComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,8 @@ import { RutaPrincipalComponent } from './rutas/ruta-principal/ruta-principal.co
     PacienteRestService,
     UsuarioRestService,
     EventoRestService,
-    MedicamentoRestService
+    MedicamentoRestService,
+    FacturaService
   ],
   bootstrap: [AppComponent]
 })

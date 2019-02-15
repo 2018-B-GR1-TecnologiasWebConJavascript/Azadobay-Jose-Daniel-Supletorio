@@ -11,9 +11,11 @@ import {ActualizarUsuarioComponent} from "./rutas/usuarios/actualizar-usuario/ac
 import {RutaAdministrarRolesComponent} from "./rutas/usuarios/ruta-administrar-roles/ruta-administrar-roles.component";
 import {BuscarFacturasComponent} from "./rutas/facturas/buscar-facturas/buscar-facturas.component";
 import {GestionFacturasComponent} from "./rutas/facturas/gestion-facturas/gestion-facturas.component";
-import {RutaLoginComponent} from "./rutas/usuarios/ruta-login/ruta-login.component";
 import {EventosMedicamentosComponent} from "./rutas/medicamentos/eventos-medicamentos/eventos-medicamentos.component";
+import { AgregarItemComponent } from './rutas/facturas/agregar-item/agregar-item.component';
+import { ListaFacturasComponent } from './rutas/facturas/lista-facturas/lista-facturas.component';
 import {RutaPrincipalComponent} from "./rutas/ruta-principal/ruta-principal.component";
+import {PublicEventComponent} from "./rutas/eventos/public-event/public-event.component";
 
 
 const routes: Routes = [
@@ -45,6 +47,10 @@ const routes: Routes = [
         component: RutaGestioEventosComponent
       },
       {
+        path: 'crear-usuario',
+        component: RegistroUsuarioComponent
+      },
+      {
         path: 'actualizar-usuario/:idUsuario',
         component: ActualizarUsuarioComponent
       },
@@ -53,22 +59,32 @@ const routes: Routes = [
         component: RutaAdministrarRolesComponent
       },
       {
-        path: 'listaFacturas',
-        component: BuscarFacturasComponent
-      },
-      {
-        path: 'gFacturas',
-        component: GestionFacturasComponent
-      },
-      {
         path: 'eMedicamento/:idEvento',
         component: EventosMedicamentosComponent
       },
+      {
+        path: 'publicEvent/:idEvento',
+        component: PublicEventComponent
+      },
+      {
+        path: 'buscarFactura/:id',
+        component: BuscarFacturasComponent
+      },
+      {
+        path: 'gFacturas/:id',
+        component: GestionFacturasComponent
+      },
+      {
+        path: 'addItem',
+        component: AgregarItemComponent
+      },
+      {
+        path: 'listaFacturas',
+        component: ListaFacturasComponent
+      },
+
+
     ]
-  },
-  {
-    path: 'crear-usuario',
-    component: RegistroUsuarioComponent
   },
   {
     path: 'login',
