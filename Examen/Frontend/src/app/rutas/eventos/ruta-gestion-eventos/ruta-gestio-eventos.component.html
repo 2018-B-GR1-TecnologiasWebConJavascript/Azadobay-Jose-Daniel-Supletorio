@@ -26,18 +26,15 @@
       
       
       <td>
-        <button (click)="eliminar(empresa)"> Eliminar </button>
-        
-        <button (click)="eliminar(empresa)"> Actualizar </button>
         
         <a [routerLink]="['/home','eMedicamento',e.id]">
           <button>Añadir hijos</button>
         </a>
         <a [routerLink]="['/home','publicEvent',e.id]">
-          <button>Ver eventos</button>
+          <button>Ver</button>
         </a>
         <a [routerLink]="['/home','buscarFactura',e.id]">
-          <button>Gestionar Facturas </button>
+          <button>Gestionar Facturas</button>
         </a>
       
       </td>
