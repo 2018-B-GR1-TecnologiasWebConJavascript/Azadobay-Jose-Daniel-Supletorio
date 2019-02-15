@@ -19,6 +19,7 @@ import { PublicEventComponent } from "./rutas/eventos/public-event/public-event.
 import { RegistroPacienteComponent } from './rutas/pacientes/registro-paciente/registro-paciente.component';
 import { ActualizarPacienteComponent } from './rutas/pacientes/actualizar-paciente/actualizar-paciente.component';
 import { RegistroMedicamentoComponent } from './rutas/medicamentos/registro-medicamento/registro-medicamento.component';
+import { ActualizarMedicamentoComponent } from './rutas/medicamentos/actualizar-medicamento/actualizar-medicamento.component';
 
 
 const routes: Routes = [
@@ -96,6 +97,10 @@ const routes: Routes = [
       {
         path: 'crear-medicamento',
         component: RegistroMedicamentoComponent
+      },
+      {
+        path: 'actualizar-medicamento/:id',
+        component: ActualizarMedicamentoComponent
       },
 
 
