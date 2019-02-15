@@ -45,7 +45,6 @@ export class EventoRestService{
   }
 
   agregarMedicamento(eventoM : Evento_medicamento ){
-
     return this._httpClient.post(environment.url+'/eventospormedicamento',eventoM);
   }
 

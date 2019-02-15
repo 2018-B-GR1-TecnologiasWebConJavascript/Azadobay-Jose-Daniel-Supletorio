@@ -17,12 +17,6 @@ module.exports = {
       type: 'number',
       required: true
     },
-    fechaNacimiento: {
-      type: 'string',
-      required: true,
-      columnName: 'fecha_nacimiento' ,
-    },
-
     telefono: {
       type: 'number',
       required: true
@@ -39,7 +33,6 @@ module.exports = {
     fecha: {
       type: 'string',
       regex: /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/
-
     },
 
     total:{
@@ -52,7 +45,8 @@ module.exports = {
         'Efectivo',
         'Tarjeta',
         'Cheque'
-      ]
+      ],
+      defaultsTo: 'Efectivo'
     },
 
     estado: {
@@ -60,7 +54,8 @@ module.exports = {
       isIn: [
         'En Compra',
         'Pagado',
-      ]
+      ],
+      defaultsTo: 'En Compra'
     },
 
     detalles: {
@@ -68,7 +63,13 @@ module.exports = {
       via: 'idFacturaCabecera',
     },
 
+    idUsuario:{
+      model: 'Usuario'
+    },
 
+    idEvento:{
+      model:'Evento'
+    }
   },
 
 };

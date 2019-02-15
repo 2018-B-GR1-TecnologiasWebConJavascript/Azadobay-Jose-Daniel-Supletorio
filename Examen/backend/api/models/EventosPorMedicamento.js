@@ -8,18 +8,24 @@
 module.exports = {
 
   attributes: {
-    idEvento:{
-      model:'Evento'
-    },
-
     idMedicamento: {
       model: 'Medicamento'
+    },
+
+    precioBase:{
+      columnName: 'precio_base',
+      type: 'number'
     },
 
     detalleFacturas: {
       collection: 'FacturaDetalle',
       via: 'idEventosHijos',
     },
+
+    idEvento:{
+      model:'Evento'
+    },
+
 
   },
 

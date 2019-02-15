@@ -21,6 +21,12 @@ module.exports = {
       type: 'string',
 
     },
+
+    facturas:{
+      collection: 'FacturaCabecera',
+      via: 'idEvento'
+    },
+
     medicamentos:{
       collection: 'Medicamento',
       via: 'idEvento',

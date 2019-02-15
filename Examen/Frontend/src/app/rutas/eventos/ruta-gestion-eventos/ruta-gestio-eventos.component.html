@@ -1,22 +1,22 @@
-<h1>  LISTA DE EVENTOS </h1>
+<h1> LISTA DE EVENTOS </h1>
 
 <div>
   <label for="campoBuscar"></label>
   <input id="campoBuscar" type="text">
-  <button> BUSCAR </button>
+  <button> BUSCAR</button>
 </div>
 
 
-<div>
+<div *ngIf="roles">
   <table>
     
     <!-- tr -- table row -->
     <tr>
       <!-- tr -- table header-->
-      <th> Codigo </th>
-      <th> Nombre </th>
-      <th> Fecha del Evento </th>
-      
+      <th> Codigo</th>
+      <th> Nombre</th>
+      <th> Fecha del Evento</th>
+    
     </tr>
     
     <tr *ngFor="let e of  eventos">
@@ -26,17 +26,27 @@
       
       
       <td>
-        <button (click)="eliminar(empresa)"> Eliminar </button>
-  
-        <button (click)="eliminar(empresa)"> Actualizar </button>
         
-        <a [routerLink]="['/home','eMedicamento',e.id]">
-          <button>Añadir hijos</button>
+        <!-- <button (click)="eliminar(empresa)"> Eliminar </button>
+        -->
+        <a >
+          <button>
+            Ver
+          </button>
         </a>
-
+        
+        <a *ngIf="_autenticacionRS.esUsuario(roles)"
+          [routerLink]="['/home','eMedicamento',e.id]">
+          <button> Añadir hijos </button>
+        </a>
+        
+        <a *ngIf="_autenticacionRS.esCajero(roles)">
+          <button> Gestionar Facturas</button>
+        </a>
+      
+      
       </td>
     </tr>
-    
     
     
     <!-- Directivas con importantes -->

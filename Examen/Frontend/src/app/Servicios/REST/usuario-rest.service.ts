@@ -19,6 +19,9 @@ export class UsuarioRestService {
   }
 
 
+  //METODOS PARA USUARIOS
+
+
   buscarTodo(): Observable<Usuario[]> {
     // http client es un observable
     const objeto$ = this._httpClient.get(environment.url + this.nombreModelo).pipe(
@@ -60,6 +63,16 @@ export class UsuarioRestService {
       .pipe(
         map(u => <Usuario>u)
       );
+
+  }
+
+  usuarioPorUserPass(user,pass): Observable<Usuario> {
+
+      return this._httpClient
+        .get(environment.url + this.nombreModelo + '?correo='+user+'&password='+pass)
+        .pipe(
+          map(u => <Usuario> u)
+        ); // Castear
 
   }
 

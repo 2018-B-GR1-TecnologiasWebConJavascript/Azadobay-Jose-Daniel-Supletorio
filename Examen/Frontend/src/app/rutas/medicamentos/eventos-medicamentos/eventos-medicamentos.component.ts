@@ -4,6 +4,7 @@ import {MedicamentoRestService} from "../../../Servicios/REST/medicamento-rest.s
 import {ActivatedRoute} from "@angular/router";
 import {Evento} from "../../../Interfaces/Evento";
 import {EventoRestService} from "../../../Servicios/REST/evento-rest-service";
+import {rolesPorUsuario} from "../../../Interfaces/rolesPorUsuario";
 
 @Component({
   selector: 'app-eventos-medicamentos',
@@ -18,10 +19,13 @@ export class EventosMedicamentosComponent implements OnInit {
 
   evento_medicamento: Evento_medicamento = {
     idEvento: '',
-    idMedicamento: ''
+    idMedicamento: '',
+    precioBase: '' ,
   };
 
   evento: Evento;
+
+  eventoMedicamentoActualizar: Evento_medicamento;
 
   //evento ={nombre:null,fecha:null,latitud:null,longitud:null};
 
@@ -42,18 +46,34 @@ export class EventosMedicamentosComponent implements OnInit {
 
   agregarMedicamento(id) {
 
-    this.evento_medicamento.idEvento = this.evento.id
-    this.evento_medicamento.idMedicamento = id
+    if (this.validarHijo(parseInt(id)) >= 0) {
 
+      alert('El Evento ya tiene ese hijo');
 
-    this.eventoRestService.agregarMedicamento(this.evento_medicamento)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.getEventoId();
-        },
-        err => console.error(err)
-      )
+    } else {
+
+      this.evento_medicamento.idEvento = this.evento.id
+      this.evento_medicamento.idMedicamento = id
+
+      this.eventoRestService.agregarMedicamento(this.evento_medicamento)
+        .subscribe(
+          res => {
+            console.log(res);
+            this.getEventoId();
+            this.evento_medicamento.precioBase ='';
+          },
+          err => console.error(err)
+        )
+    }
+  }
+
+  validarHijo(idHtml) {
+
+    const encontrado = this.evento.medicamentos.findIndex(ro =>
+      ro.id === idHtml);
+
+    return encontrado;
+
   }
 
   getMedicamentos() {
@@ -83,6 +103,32 @@ export class EventosMedicamentosComponent implements OnInit {
         }, () => {
         }
       )
+  }
+
+  eliminarHijo(hijo) {
+
+    const objeto$ = this._mediRS.buscarEventoMedicamentoPorId(this.evento.id, hijo);
+
+    objeto$
+      .subscribe(
+        (respuesta: Evento_medicamento) => {
+          this.eventoMedicamentoActualizar = respuesta[0];
+
+          const objetoEliminado$ = this._mediRS.deleteRolUsuario(this.eventoMedicamentoActualizar.id);
+          objetoEliminado$
+            .subscribe((hijoEliminado: Evento_medicamento) => {
+                alert('Hijo Eliminado:');
+                this.getEventoId();
+              },
+              (error) => {
+                console.log(error);
+              });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+
   }
 
 }
