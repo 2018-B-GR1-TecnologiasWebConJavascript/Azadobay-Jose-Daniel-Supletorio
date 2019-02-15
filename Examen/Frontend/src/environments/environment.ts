@@ -2,9 +2,12 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import {Usuario} from "../app/Interfaces/Usuarios";
+
 export const environment = {
   production: false,
-  url: 'http://localhost:1337'
+  url: 'http://localhost:1337',
+  usuarioLogeado: '',
 
 };
 

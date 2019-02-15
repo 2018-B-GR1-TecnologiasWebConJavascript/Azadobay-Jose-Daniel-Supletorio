@@ -13,6 +13,7 @@ import {BuscarFacturasComponent} from "./rutas/facturas/buscar-facturas/buscar-f
 import {GestionFacturasComponent} from "./rutas/facturas/gestion-facturas/gestion-facturas.component";
 import {RutaLoginComponent} from "./rutas/usuarios/ruta-login/ruta-login.component";
 import {EventosMedicamentosComponent} from "./rutas/medicamentos/eventos-medicamentos/eventos-medicamentos.component";
+import {RutaPrincipalComponent} from "./rutas/ruta-principal/ruta-principal.component";
 
 
 const routes: Routes = [
@@ -44,10 +45,6 @@ const routes: Routes = [
         component: RutaGestioEventosComponent
       },
       {
-        path: 'crear-usuario',
-        component: RegistroUsuarioComponent
-      },
-      {
         path: 'actualizar-usuario/:idUsuario',
         component: ActualizarUsuarioComponent
       },
@@ -70,8 +67,12 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'crear-usuario',
+    component: RegistroUsuarioComponent
+  },
+  {
     path: 'login',
-    component: RutaLoginComponent
+    component: RutaPrincipalComponent
   },
   {
     path: 'no-encontrado',
