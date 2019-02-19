@@ -88,16 +88,27 @@ export class FacturaService {
         map(u => <Factura>u)
       );
   }
+
+
   ///METODOS BUSQUEDA DE FACTURAS COMPLEJAS
 
-  getFacturasPorEventoYUsuario(idEvento,idUsuario){
-    const objeto$ = this._httpClient.get(environment.url + this.nombreModelo + '?idUsuario='+idUsuario+'&idEvento='+idEvento)
+  getFacturasPorEventoUsuarioTipo(idUsuario,idEvento,estado){
+    const objeto$ = this._httpClient.get(environment.url + this.nombreModelo + '?idUsuario='+idUsuario+'&idEvento='+idEvento+'&estado='+estado)
       .pipe(
         map( (respuesta) =>
         { return < Factura[] > respuesta; }) );
 
     return objeto$;
   }
+
+  getFacturasTodasSinCliente(idUsuario, idEvento){
+  const objeto$ = this._httpClient.get(environment.url + this.nombreModelo + '?idUsuario='+idUsuario+'&idEvento='+idEvento)
+    .pipe(
+      map( (respuesta) =>
+      { return < Factura[] > respuesta; }) );
+
+  return objeto$;
+}
 
   
 }

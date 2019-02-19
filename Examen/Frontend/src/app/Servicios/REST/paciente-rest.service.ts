@@ -70,7 +70,16 @@ export class PacienteRestService {
   }
 
 
+  pacientePorApellido(apellido): Observable<Paciente[]> {
+    const url = environment.url + this.nombreModelo + '?apellidos=' + apellido;
 
+    return this._httpClient
+      .get(url)
+      .pipe(
+        map(u => <Paciente[]>u)
+      );
+
+  }
 
 
 }

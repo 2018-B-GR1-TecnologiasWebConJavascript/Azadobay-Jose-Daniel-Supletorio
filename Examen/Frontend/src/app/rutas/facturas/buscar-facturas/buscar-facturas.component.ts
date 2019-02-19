@@ -13,10 +13,15 @@ import {environment} from "../../../../environments/environment";
 })
 export class BuscarFacturasComponent implements OnInit {
 
-  facturas: Factura[];
+  facturas: Factura[] = {
+    nombre: '',
+    fecha: '',
+    total: '',
+    estado: ''
+  };
 
   usuarioEncontrado: Usuario;
-  usuarioBuscar:'';
+  usuarioBuscar: '';
   idEvento;
 
   constructor(private readonly _activateRoute: ActivatedRoute,
@@ -27,7 +32,6 @@ export class BuscarFacturasComponent implements OnInit {
   ngOnInit() {
 
 
-
     const objeto$ = this._activateRoute.params;
 
     objeto$
@@ -36,13 +40,14 @@ export class BuscarFacturasComponent implements OnInit {
 
           this.idEvento = parametros.idEvento;
           console.log(this.idEvento);
-          const facturas$ = this._facturaRestService.getFacturasPorEventoYUsuario(this.idEvento,environment.usuarioLogeado);
 
-          facturas$.subscribe((facturasA)=>{
-            console.log(facturasA);
-            this.facturas = facturasA;
-          });
+          /*
+                    const facturas$ = this._facturaRestService.getFacturasPorEventoYUsuario(this.idEvento,environment.usuarioLogeado);
 
+                    facturas$.subscribe((facturasA)=>{
+                      console.log(facturasA);
+                      this.facturas = facturasA;
+                    }); */
         }
       );
 
@@ -96,19 +101,30 @@ export class BuscarFacturasComponent implements OnInit {
 
   buscarFacturas(tipoBusqueda) {
 
-    if (tipoBusqueda === "Todas" && this.usuarioBuscar === '') {
 
-      //this.buscarUsuarioPorName();
+    if (this.usuarioBuscar === '' || this.usuarioBuscar == undefined) {
 
-      //this.getFacturasByIdUseryTipo(tipoBusqueda);
+      if (tipoBusqueda === 'Todas') {
 
+        this.getTodasFacturas();
+      }
+      if (tipoBusqueda === 'En Compra') {
 
+        this.getFacturasEstado(tipoBusqueda);
+        console.log('Estoy aqui en Compra');
+      }
+      if (tipoBusqueda === 'Pagado') {
+
+        this.getFacturasEstado(tipoBusqueda);
+        console.log('Estoy aqui en Pagado');
+
+      }
 
     } else {
 
-      this.buscarUsuarioPorName();
-      //this.getFacturasByIdUseryTipo(tipoBusqueda);
+      console.log('Usuario Lleno');
     }
+
   }
 
 
@@ -128,6 +144,41 @@ export class BuscarFacturasComponent implements OnInit {
         }
       );
 
+  }
+
+
+  //ULTIMAS
+
+  getFacturasEstado(tipoBusqueda) {
+
+    //const objeto$ = this._facturaRestService.getFacturasPorEventoUsuarioTipo(environment.usuarioLogeado,this.idEvento, tipoBusqueda);
+    const objeto$ = this._facturaRestService.getFacturasPorEventoUsuarioTipo(4, this.idEvento, tipoBusqueda);
+    objeto$
+      .subscribe(
+        (factura: Factura[]) => {
+          console.log(factura);
+          this.facturas = factura;
+          console.log(this.facturas);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  getTodasFacturas() {
+    const objeto$ = this._facturaRestService.getFacturasTodasSinCliente(4, this.idEvento);
+    objeto$
+      .subscribe(
+        (factura: Factura[]) => {
+          console.log(factura);
+          this.facturas = factura;
+          console.log(this.facturas);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
 
