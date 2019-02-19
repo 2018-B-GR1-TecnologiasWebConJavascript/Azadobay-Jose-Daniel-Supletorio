@@ -9,25 +9,37 @@
   <h3>Lista de Facturas</h3>
   
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Buscar</label>
+    <label for="user"
+           class="col-sm-3
+           col-form-label">Buscar</label>
     
     <div class="col-sm-3">
-      <input type="email"
+      <input type="text"
              class="form-control"
-             id="mail"
-              nombre="mail">
+             id="user"
+             nombre="user"
+      [(ngModel)]="usuarioBuscar">
     </div>
     
-    <button type="button" class="btn btn-success " >Buscar</button>
+    <button type="button"
+            class="btn btn-success"
+    (click)="buscarFacturas(tipoOpc.value)">
+      Buscar
+    </button>
   </div>
   
   <div class="form-group row ">
     <label class="col-sm-3 col-form-label">Filtrar por estado</label>
     <div class="col-sm-3">
-      <select class="form-control" id="exampleFormControlSelect2">
-        <option>En compra</option>
-        <option>Pagado</option>
-        <option>Todas</option>
+      <select class="form-control"
+              id="SelectTipo"
+              (change)="prueba(tipoOpc.value)"
+              #tipoOpc
+      >
+        
+        <option [value]="'En Compra'">En Compra</option>
+        <option [value]="'Pagado'">Pagado</option>
+        <option [value]="'Todas'">Todas</option>
       </select>
     </div>
   </div>
@@ -35,7 +47,7 @@
   
   <!--Fila para Detalle de Factura -->
   <h5>Detalle de factura </h5>
-  <div class="row">
+  <div class="row" *ngIf="usuarioEncontrado">
     <div class="col-md-12">
       <div>
         <table class="table table-striped">

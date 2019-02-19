@@ -1,19 +1,19 @@
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-</head>
-
-<body>
-
 <div class="container">
   <h3>Lista De Facturas</h3>
+  
+  <br>
+  
   <div>
     <table class="table">
-      
+      <thead class="thead-dark">
       <tr>
-        <th> Nombre del que Emitio </th>
-        <th> Fecha </th>
+        <th> Nombre Cliente</th>
+        <th> Fecha</th>
         <th> Total</th>
+        <th> Tipo de Pago</th>
+        <th> Acciones</th>
       </tr>
+      </thead>
       
       <tr *ngFor="let f of  facturas">
         <td> {{f.nombre }} </td>
@@ -21,7 +21,7 @@
         <td> {{f.total}} </td>
         <td> {{f.tipoPago}} </td>
         <td>
-          <a [routerLink]="['/home','gFacturas',f]">
+          <a [routerLink]="['/home','gFacturas',f.id]">
             <button>Ver Factura</button>
           </a>
         </td>

@@ -28,6 +28,10 @@ import { PublicEventComponent } from './rutas/eventos/public-event/public-event.
 import { AgregarItemComponent } from './rutas/facturas/agregar-item/agregar-item.component';
 import { ListaFacturasComponent } from './rutas/facturas/lista-facturas/lista-facturas.component';
 import {FacturaService} from "./Servicios/REST/factura.service";
+import {ButtonModule} from "primeng/button";
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +59,11 @@ import {FacturaService} from "./Servicios/REST/factura.service";
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ButtonModule,
+    MessagesModule,
+    MessageModule
+
 
   ],
   providers: [

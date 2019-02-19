@@ -7,7 +7,42 @@
         novalidate
         (ngSubmit)="actualizarUsuario(actualizarForm)"
   >
-    
+  
+    <p *ngIf="controlNombre.errors"> Campo Nombre:
+      <span *ngIf="controlNombre.errors.required "> Vacio </span>
+      <span *ngIf="controlNombre.errors.pattern"> Solo se permiten letras </span>
+    </p>
+  
+    <p *ngIf="correoControl.errors"> Campo Correo :
+      <span *ngIf="correoControl.errors.required "> Vacio </span>
+      <span *ngIf="correoControl.errors.pattern"> No parece un email </span>
+    </p>
+  
+    <p *ngIf="controlPass.errors"> Campo Password :
+      <span *ngIf="controlPass.errors.required "> Vacio </span>
+      <span *ngIf="controlPass.errors.min "> Minimo 8 caracteres </span>
+      <span *ngIf="controlPass.errors.max "> Maximo 16 caracteres </span>
+      <span *ngIf="controlPass.errors.pattern"> debe tener al menos una
+        letra en mayuscula, un numero y un caracter especial. Tamaño minimo: 8 caracteres.</span>
+    </p>
+  
+    <p *ngIf="fechaControl.errors"> Email:
+      <span *ngIf="fechaControl.errors.required"> Campo vacio</span>
+      <span *ngIf="fechaControl.errors.pattern"> No es una fecha valida </span>
+    </p>
+  
+    <p *ngIf="actualizarForm.invalid">
+      Se debe completar el formulario
+    </p>
+    <p *ngIf="actualizarForm.valid">
+      Formulario Listo
+    </p>
+  
+  
+  
+  
+  
+  
     <div>
       <label for="nombre"> Nombre </label>
       <input

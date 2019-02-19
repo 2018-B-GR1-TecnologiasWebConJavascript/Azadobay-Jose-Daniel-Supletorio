@@ -1,14 +1,23 @@
-<h3> Registro </h3>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
+        crossorigin="anonymous">
 
-<p> Registrese </p>
+</head>
 
-
-<form #userForm="ngForm"
-      novalidate
-      (submit)="crearUsuario()">
+<div class="container">
+  
+  <h3> Registro </h3>
+  
+  <p> Registrese </p>
   
   
-  <div>
+  <form
+  >
     
     
     <!-- Banana box modelo -->
@@ -20,106 +29,222 @@
       <span *ngIf="nombreControl.errors.required "> Vacio </span>
       <span *ngIf="nombreControl.errors.pattern"> Solo se permiten letras </span>
     </p>
-  
+    
     <p *ngIf="correoControl.errors"> Campo Correo :
-    <span *ngIf="correoControl.errors.required "> Vacio </span>
-    <span *ngIf="correoControl.errors.pattern"> No parece un email </span>
-  </p>
-  
+      <span *ngIf="correoControl.errors.required "> Vacio </span>
+      <span *ngIf="correoControl.errors.pattern"> No parece un email </span>
+      <span *ngIf="correoControl.errors.email"> No parece un email </span>
+    
+    </p>
+    
     <p *ngIf="controlPass.errors"> Campo Password :
       <span *ngIf="controlPass.errors.required "> Vacio </span>
       <span *ngIf="controlPass.errors.pattern"> debe tener al menos una
         letra en mayuscula, un numero y un caracter especial</span>
     </p>
-  
-    <p *ngIf="fechaControl.errors"> Email:
-    <span *ngIf="fechaControl.errors.required"> Campo vacio</span>
-    <span *ngIf="fechaControl.errors.pattern"> No es una fecha valida </span>
+    
+    <p *ngIf="fechaControl.errors"> Fecha:
+      <span *ngIf="fechaControl.errors.required"> Campo vacio</span>
+      <span *ngIf="fechaControl.errors.pattern"> No es una fecha valida </span>
     </p>
     
-    <p *ngIf="userForm.invalid">
-      Se debe completar el formulario
-    </p>
-    <p *ngIf="userForm.valid">
-      Formulario Listo
-    </p>
-  
-  
-  
-  
-    <label for="nombre"> Nombre </label>
-    <input
-      id="nombre"
-      name="nombre"
-      type="text"
-      placeholder="Ingrese el nombre"
-      [(ngModel)]="usuario.nombre"
-      #nombreControl="ngModel"
-      required
-      pattern="^[a-zA-Z_áéíóúñ\s]*$"
     
-    >
-  </div>
-  
-  <div>
+    <div class="container">
+      
+      <div class="row justify-content-center">
+        
+        <div class="card" style="width: 50rem;">
+          <div class="card-header">
+            Registra un nuevo Usuario
+          </div>
+          <div class="card-body">
+            <h6 class="card-title">Ingresa los Datos</h6>
+            
+            <form #userForm="ngForm"
+                  novalidate
+                  (submit)="crearUsuario()">
+              <div class="form-group row">
+                
+                <label for="nombre" class="col-sm-3 col-form-label"> Nombre </label>
+                
+                <div class="col-sm-9">
+                  
+                  <input
+                    class="form-control"
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    placeholder="Ingrese el nombre"
+                    [(ngModel)]="usuario.nombre"
+                    #nombreControl="ngModel"
+                    required
+                    pattern="^[a-zA-Z_áéíóúñ\s]*$"
+                  
+                  >
+                
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label for="correo" class="col-sm-3 col-form-label"> Correo </label>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    id="correo"
+                    name="correo"
+                    type="text"
+                    placeholder="Ingrese el correo"
+                    [(ngModel)]="usuario.correo"
+                    #correoControl="ngModel"
+                    required
+                    email
+                  >
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                
+                <label for="password" class="col-sm-3 col-form-label"> Password </label>
+                <div class="col-sm-9">
+                  
+                  <input
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    type="text"
+                    placeholder="Ingrese el password"
+                    [(ngModel)]="usuario.password"
+                    #controlPass="ngModel"
+                    required
+                    maxlength="16"
+                    minlength="8"
+                    pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$"
+                  
+                  >
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                
+                <label for="fN" class="col-sm-3 col-form-label"> Fecha de Nacimiento </label>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    id="fN"
+                    name="fN"
+                    type="text"
+                    placeholder="Ingrese la fecha"
+                    [(ngModel)]="usuario.fechaNacimiento"
+                    #fechaControl="ngModel"
+                    required
+                    pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$"
+                  >
+                </div>
+              </div>
+              
+              
+              <button type="reset" class="btn btn-secondary"> Reset</button>
+              
+              <button type="submit"
+                      [disabled]="userForm.invalid"
+                      class="btn btn-primary">
+                Crear
+              </button>
+            </form>
+          
+          </div>
+          
+          <div class="card-footer text-muted">
+            <p *ngIf="userForm.invalid">
+              Se debe completar el formulario
+            </p>
+            <p *ngIf="userForm.valid">
+              Formulario Listo
+            </p>
+          
+          </div>
+        </div>
+      
+      </div>
+    </div>
     
-    <label for="correo"> Correo </label>
+    <!--
+    <div>
+      
+      <label for="nombre"> Nombre </label>
+      <input
+        id="nombre"
+        name="nombre"
+        type="text"
+        placeholder="Ingrese el nombre"
+        [(ngModel)]="usuario.nombre"
+        #nombreControl="ngModel"
+        required
+        pattern="^[a-zA-Z_áéíóúñ\s]*$"
+      
+      >
+    </div>
     
-    <input
-      id="correo"
-      name="correo"
-      type="text"
-      placeholder="Ingrese el correo"
-      [(ngModel)]="usuario.correo"
-      #correoControl="ngModel"
-      required
-      email
-    >
-  
-  </div>
-  
-  <div>
+    <div>
+      
+      <label for="correo"> Correo </label>
+      
+      <input
+        id="correo"
+        name="correo"
+        type="text"
+        placeholder="Ingrese el correo"
+        [(ngModel)]="usuario.correo"
+        #correoControl="ngModel"
+        required
+        email
+      >
     
-    <label for="password"> Password </label>
-    <input
-      id="password"
-      name="password"
-      type="text"
-      placeholder="Ingrese el password"
-      [(ngModel)]="usuario.password"
-      #controlPass="ngModel"
-      required
-      maxlength="16"
-      minlength="8"
-      pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$"
+    </div>
+   
+    <div>
+      
+      <label for="password"> Password </label>
+      <input
+        id="password"
+        name="password"
+        type="text"
+        placeholder="Ingrese el password"
+        [(ngModel)]="usuario.password"
+        #controlPass="ngModel"
+        required
+        maxlength="16"
+        minlength="8"
+        pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$"
+      
+      >
+    </div>
     
-    >
-  </div>
-  
-  <div>
-    <label for="fN"> Fecha de Nacimiento </label>
+    <div>
+      <label for="fN"> Fecha de Nacimiento </label>
+      
+      <input
+        id="fN"
+        name="fN"
+        type="text"
+        placeholder="Ingrese la fecha"
+        [(ngModel)]="usuario.fechaNacimiento"
+        #fechaControl="ngModel"
+        required
+        pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$"
+      >
+    </div>
     
-    <input
-      id="fN"
-      name="fN"
-      type="text"
-      placeholder="Ingrese la fecha"
-      [(ngModel)]="usuario.fechaNacimiento"
-      #fechaControl="ngModel"
-      required
-      pattern="^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$"
-    >
-  </div>
+    <button type="button"> Button</button>
+    
+    <button type="reset"> Reset</button>
+    
+    <button type="submit"
+            [disabled]="userForm.invalid"
+    > Submit
+    </button>
+  -->
   
-  <button type="button"> Button</button>
-  
-  <button type="reset"> Reset</button>
-  
-  <button type="submit"
-          [disabled]="userForm.invalid"
-  > Submit
-  </button>
+  </form>
 
-
-</form>
-
+</div>

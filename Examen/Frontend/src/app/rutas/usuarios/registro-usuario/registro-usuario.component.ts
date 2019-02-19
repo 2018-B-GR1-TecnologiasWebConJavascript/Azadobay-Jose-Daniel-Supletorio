@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from "../../../Interfaces/Usuarios";
 import {UsuarioRestService} from "../../../Servicios/REST/usuario-rest.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registro-usuario',
@@ -17,7 +18,8 @@ export class RegistroUsuarioComponent implements OnInit {
     fechaNacimiento : ''
   };
 
-  constructor(private readonly _userRS: UsuarioRestService) { }
+  constructor(private readonly _userRS: UsuarioRestService,
+  private readonly _route: Router) { }
 
   ngOnInit() {
   }
@@ -29,6 +31,14 @@ export class RegistroUsuarioComponent implements OnInit {
     crearUsuario$
       .subscribe((respuesta: Usuario) => {
         alert(`Usuario Creado:  ${respuesta.nombre}`);
+
+        /*  const url = [
+            '/home',
+            'gUsuarios'
+          ];
+
+          this._route.navigate(url);
+*/
         },
         (error) => {
         console.log('Error',error);

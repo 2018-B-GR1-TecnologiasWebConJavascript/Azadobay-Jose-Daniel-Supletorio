@@ -46,10 +46,7 @@ const routes: Routes = [
         path: 'gEventos',
         component: RutaGestioEventosComponent
       },
-      {
-        path: 'crear-usuario',
-        component: RegistroUsuarioComponent
-      },
+
       {
         path: 'actualizar-usuario/:idUsuario',
         component: ActualizarUsuarioComponent
@@ -85,6 +82,10 @@ const routes: Routes = [
 
 
     ]
+  },
+  {
+    path: 'crear-usuario',
+    component: RegistroUsuarioComponent
   },
   {
     path: 'login',

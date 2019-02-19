@@ -8,7 +8,7 @@ import {rolesPorUsuario} from "../../../Interfaces/rolesPorUsuario";
 @Component({
   selector: 'app-ruta-administrar-roles',
   templateUrl: './ruta-administrar-roles.component.html',
-  styleUrls: ['./ruta-administrar-roles.component.css']
+  styleUrls: ['./ruta-administrar-roles.component.css'],
 })
 export class RutaAdministrarRolesComponent implements OnInit {
 
@@ -22,6 +22,7 @@ export class RutaAdministrarRolesComponent implements OnInit {
 
   rolUsuarioActualizar: rolesPorUsuario;
 
+  mensaje='';
 
   constructor(
     private readonly _activateRoute: ActivatedRoute,
@@ -77,6 +78,7 @@ export class RutaAdministrarRolesComponent implements OnInit {
 
     if (this.validarRol(parseInt(id)) >= 0) {
       alert('El Usuario ya tiene ese Rol');
+      this.mensaje=  'ERROR- ESE USUARIO YA TIENE  ESE ROL';
 
     } else {
 
@@ -90,6 +92,7 @@ export class RutaAdministrarRolesComponent implements OnInit {
           (respuesta: rolesPorUsuario) => {
             console.log(respuesta);
             this.getusuario();
+
           }, (error) => {
             console.error('Error', error);
           }

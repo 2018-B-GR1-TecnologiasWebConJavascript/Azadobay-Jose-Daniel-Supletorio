@@ -40,9 +40,11 @@ export class RutaHomeComponent implements OnInit {
     );
   }
 
+
   prueba(){
 
     console.log(this.roles);
+    console.log(this.usuarioActualizar);
   }
 
 

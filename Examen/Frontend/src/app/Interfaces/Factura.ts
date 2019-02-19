@@ -5,14 +5,14 @@ import {Evento} from "./Evento";
 export interface Factura{
   id?:any;
   nombre:string;
-  cedula:number;
-  telefono: number;
-  direccion:string;
-  correo:string;
-  fecha:string;
-  total:number;
-  tipoPago:string;
-  estado:string;
+  cedula:any;
+  telefono: any;
+  direccion?:string;
+  correo?:string;
+  fecha?:string;
+  total?:any;
+  tipoPago?:string;
+  estado?:string;
 
   detalles?: FacturaDetalle[];
   idUsuario?: Usuario;

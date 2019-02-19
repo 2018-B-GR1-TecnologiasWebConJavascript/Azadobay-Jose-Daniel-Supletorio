@@ -8,51 +8,92 @@
 
   <h1> {{roles[0].nombre}} </h1>-->
 
-<div>
-  <ul>
-    <!-- li -> list item -->
-   <!-- <li *ngIf="_autenticacionRS.esAdministrador(roles)">-->
-      <li>
-      <!-- a -> anchor -> ancla -->
-      <a routerLink="/home/gUsuarios"
-      >
-        Gestion de Usuarios
-      </a>
-    </li>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
+        crossorigin="anonymous">
+
+</head>
+
+
+<!-- <div class="container" *ngIf="roles">
+  -->
+  <div class="container">
   
-    <!-- <li *ngIf="_autenticacionRS.esUsuario(roles)">  -->
+  <ul class="nav nav-pills nav-fill">
+    
+    <!--  <li class="nav-item"
+        *ngIf="_autenticacionRS.esAdministrador(roles)"> -->
+    
     <li>
-      <a routerLink="/home/gPacientes"
-      >
-        Gestion de Pacientes
+      <!-- a -> anchor -> ancla -->
+      <a class="nav-link active"
+         routerLink="/home/gUsuarios">Gestion de Usuarios
+      </a>
+    
+    </li>
+    <br>
+    <!--  <li *ngIf="_autenticacionRS.esUsuario(roles)">  -->
+    <!-- <li class="nav-item" *ngIf="_autenticacionRS.esUsuario(roles)">-->
+    <li>
+      <a class="nav-link "
+         routerLink="/home/gPacientes">Gestion de Pacientes
       </a>
     </li>
     
     <!-- <li *ngIf="_autenticacionRS.esUsuario(roles)"> -->
-      <li>
-      <a routerLink="/home/gMedicamentos"
-      >
-        Gestion de Medicamentos
+    <!--  <li class="nav-item" *ngIf="_autenticacionRS.esUsuario(roles)"> -->
+    <li>
+      <a class="nav-link active"
+         routerLink="/home/gMedicamentos">Gestion de Medicamentos
       </a>
     </li>
     
     
+    <!-- <li class="nav-item" *ngIf="_autenticacionRS.esCajero(roles)"> -->
     <li>
-      <a routerLink="/home/gEventos">Gestion de Eventos</a>
+      <a class="nav-link"
+         routerLink="/home/gEventos">Gestion de Eventos</a>
     </li>
     
-   <!-- <li *ngIf="_autenticacionRS.escliente(roles)"> -->
+    <!-- <li *ngIf="_autenticacionRS.escliente(roles)"> -->
+    <!--  <li class="nav-item" *ngIf="_autenticacionRS.escliente(roles)"> -->
+      
       <li>
-      <a routerLink="/home/listaFacturas">Gestion de Facturas</a>
+      <a class="nav-link active"
+         routerLink="/home/listaFacturas">Gestion de Facturas</a>
     </li>
   
   
   </ul>
-  <br>
-  <body>
   
+  
+  <br>
+  
+  <br>
   <router-outlet></router-outlet>
-  <!-- p -> parrafo  -->
-  </body>
+  
+  <br>
+  <br>
+  
+  <footer>Proyecto EPN</footer>
 </div>
-<footer>Proyecto EPN</footer>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

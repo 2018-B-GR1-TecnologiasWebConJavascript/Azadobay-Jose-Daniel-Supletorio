@@ -37,8 +37,9 @@ export class RutaPrincipalComponent implements OnInit {
       objeto$
         .subscribe(
           (usuario: any) => {
+
             if (usuario.length > 0) {
-              alert('Usuario Encontrado');
+              alert('Bienvenido  '+usuario[0].nombre);
 
               environment.usuarioLogeado = usuario[0].id;
               const url = [
@@ -46,6 +47,7 @@ export class RutaPrincipalComponent implements OnInit {
               ];
 
               this._route.navigate(url);
+
             } else {
               alert('Usuario NO Encontrado');
             }

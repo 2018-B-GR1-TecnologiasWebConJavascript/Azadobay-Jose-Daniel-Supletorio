@@ -35,6 +35,38 @@ export class UsuarioRestService {
     return objeto$;
   }
 
+  buscarUsuarioPorNombre(nombreUser): Observable<Usuario> {
+    const url = environment.url + this.nombreModelo + '?nombre=' + nombreUser;
+
+    return this._httpClient
+      .get(url)
+      .pipe(
+        map(u => <Usuario>u)
+      );
+
+  }
+
+  buscarUsuariosPorCorreo(correo): Observable<Usuario[]> {
+    const url = environment.url + this.nombreModelo + '?correo='+ correo;
+
+    const objeto$ = this._httpClient.get(url)
+      .pipe(
+        map(u => <Usuario[]>u)
+      );
+    return objeto$;
+
+  }
+
+  buscarUsuariosPorNombre(nombreUser): Observable<Usuario[]> {
+    const url = environment.url + this.nombreModelo + '?nombre='+ nombreUser;
+
+    const objeto$ = this._httpClient.get(url)
+      .pipe(
+        map(u => <Usuario[]>u)
+      );
+    return objeto$;
+
+  }
 
   delete(id: number): Observable<Usuario> {
     return this._httpClient
@@ -66,13 +98,13 @@ export class UsuarioRestService {
 
   }
 
-  usuarioPorUserPass(user,pass): Observable<Usuario> {
+  usuarioPorUserPass(user, pass): Observable<Usuario> {
 
-      return this._httpClient
-        .get(environment.url + this.nombreModelo + '?correo='+user+'&password='+pass)
-        .pipe(
-          map(u => <Usuario> u)
-        ); // Castear
+    return this._httpClient
+      .get(environment.url + this.nombreModelo + '?correo=' + user + '&password=' + pass)
+      .pipe(
+        map(u => <Usuario>u)
+      ); // Castear
 
   }
 
@@ -86,6 +118,7 @@ export class UsuarioRestService {
       );
 
   }
+
 
   //METODOS PARA ROLES
 
@@ -115,10 +148,9 @@ export class UsuarioRestService {
   }
 
 
-
   //METODOS PARA TABLA ROLESPORUSUARIO
 
-  buscarRolUsuarioPorId(usuario: number | string , rol: number | string ): Observable<rolesPorUsuario> {
+  buscarRolUsuarioPorId(usuario: number | string, rol: number | string): Observable<rolesPorUsuario> {
 
     const url = environment.url + '/rolesporusuario?idUsuario=' + usuario + '&rolUsuario=' + rol;
 
@@ -130,12 +162,13 @@ export class UsuarioRestService {
 
   }
 
-  deleteRolUsuario(id : number | string){
+  deleteRolUsuario(id: number | string) {
 
     return this._httpClient
       .delete(environment.url + '/rolesporusuario' + `/${id}`)
       .pipe(map(u => <rolesPorUsuario>u)); // Castear
 
   }
+
 
 }

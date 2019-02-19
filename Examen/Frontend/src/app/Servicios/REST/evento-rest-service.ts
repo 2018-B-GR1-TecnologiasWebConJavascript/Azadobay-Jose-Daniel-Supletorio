@@ -65,4 +65,12 @@ export class EventoRestService{
     return this._httpClient.get(environment.url+'/eventospormedicamento?id='+int);
   }
 
+  buscarEventoPorNombre(nombre){
+
+    return this._httpClient.get(environment.url+'/evento?nombre='+nombre.toString())
+      .pipe(
+        map(u => <Evento[]> u)
+      );
+  }
+
 }

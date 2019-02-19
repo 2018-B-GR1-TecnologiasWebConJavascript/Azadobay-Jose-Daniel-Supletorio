@@ -16,7 +16,9 @@ export class RutaGestioEventosComponent implements OnInit {
 
   usuarioActualizar: Usuario;
   roles;
+  nombreEvento='';
 
+  mensaje='';
 
   eventos: Evento[];
 
@@ -28,17 +30,6 @@ export class RutaGestioEventosComponent implements OnInit {
 
   ngOnInit() {
 
-    const objeto$ = this._eventoRS.buscarTodo();
-
-    objeto$
-      .subscribe(
-        (respuesta: Evento[]) => {
-          console.log(respuesta);
-          this.eventos = respuesta;
-        }, (error) => {
-          console.error('Error', error);
-        }
-      );
 
 
     const usuario$ = this._userRS.usuarioPorId(environment.usuarioLogeado);
@@ -56,6 +47,53 @@ export class RutaGestioEventosComponent implements OnInit {
     );
 
 
+  }
+
+
+  buscarEventoNombre(){
+
+    if( this.nombreEvento != '') {
+      const objeto$ = this._eventoRS.buscarEventoPorNombre(this.nombreEvento);
+
+      objeto$
+        .subscribe(
+          (respuesta: Evento[]) => {
+            console.log(respuesta);
+
+            if(respuesta.length === 0){
+              this.mensaje = "No se encontro el Evento";
+              this.eventos = [];
+            }else{
+              this.eventos = respuesta;
+              this.mensaje=''
+            }
+
+
+          }, (error) => {
+            console.error('Error', error);
+          }
+        );
+    } else {
+
+      const objeto$ = this._eventoRS.buscarTodo();
+
+      objeto$
+        .subscribe(
+          (respuesta: Evento[]) => {
+            console.log(respuesta);
+            if(respuesta.length === 0){
+              this.mensaje = "No se encontro el Evento";
+              this.eventos = [];
+            }else{
+              this.eventos = respuesta;
+              this.mensaje=''
+            }
+          }, (error) => {
+            console.error('Error', error);
+          }
+        );
+
+    }
   }
 
 }

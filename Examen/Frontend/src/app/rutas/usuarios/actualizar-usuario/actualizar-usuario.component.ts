@@ -13,7 +13,13 @@ import {NgForm} from "@angular/forms";
 
 export class ActualizarUsuarioComponent implements OnInit {
 
-  usuarioActualizar: Usuario;
+  usuarioActualizar: Usuario = {
+  nombre:'',
+    correo:'',
+    password:'',
+    fechaNacimiento:''
+
+  };
 
   constructor(
     private readonly _activateRoute: ActivatedRoute,
@@ -41,7 +47,12 @@ export class ActualizarUsuarioComponent implements OnInit {
             .subscribe(
               (user: Usuario) => {
                 console.log(user);
-                this.usuarioActualizar = user;
+                this.usuarioActualizar.id =user.id;
+                this.usuarioActualizar.nombre = user.nombre;
+                this.usuarioActualizar.password = user.password;
+                this.usuarioActualizar.correo = user.correo;
+                this.usuarioActualizar.fechaNacimiento = user.fechaNacimiento;
+                console.log(this.usuarioActualizar);
               },
               (error) => {
                 console.log(error);
@@ -53,12 +64,15 @@ export class ActualizarUsuarioComponent implements OnInit {
 
   actualizarUsuario(formulario: NgForm) {
 
-    const objeto$ = this._userRS
-      .actualizar(this.usuarioActualizar);
+    const objeto$ = this._userRS.actualizar(this.usuarioActualizar);
 
     objeto$
       .subscribe(
         (user: Usuario) => {
+
+
+          alert('Usuario '+ user.nombre +' Actualizado ')
+          console.log(user);
 
           const url = [
             '/home',
@@ -67,7 +81,6 @@ export class ActualizarUsuarioComponent implements OnInit {
 
           this._route.navigate(url);
 
-          console.log(user);
         }
         , (error) => {
             console.log(error);

@@ -1,65 +1,91 @@
-<h1> LISTA DE USUARIOS </h1>
-
-<div>
-  <label for="usuarioABuscar"></label>
-  <input id="usuarioABuscar" type="text">
-  <button> BUSCAR</button>
-</div>
-
-<br>
-
-
-<div>
-  <table width=100% border=1>
+<div class="container">
+  
+  <h2> LISTA DE USUARIOS </h2>
+  
+  <div>
     
-    <!-- tr -- table row -->
-    <tr>
-      <!-- tr -- table header-->
-      <th> Codigo</th>
-      <th> Nombre</th>
-      <th> Password</th>
-      <th> Fecha Nacimiento</th>
-      <th> Correo</th>
-      <th> Accion</th>
-    </tr>
     
-    <tr *ngFor="let u of usuarios">
-      <td> {{u.id }} </td>
-      <td> {{u.nombre}} </td>
-      <td> {{u.password }} </td>
-      <td> {{u.fechaNacimiento}} </td>
-      <td> {{u.correo}} </td>
+    <label for="usuarioABuscar"
+    > Nombre o Correo </label>
+    
+    
+    <form class="form-inline my-2 my-lg-0">
       
       
-      <td>
-        <!-- Property Binding [Propiedad Js] -->
-        <button (click)="eliminar(u)">Borrar</button>
+      <input id="usuarioABuscar"
+             nombre="usuarioABuscar"
+             type="text"
+             [(ngModel)]="nombreUsuario"
+             [ngModelOptions]="{standalone: true}"
+             size="70"
+             class="form-control mr-sm-2"
+             placeholder="Ingrese el nombre o el correo del Usuario">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0"
+              (click)="buscarUsuario()">
+        BUSCAR
+      </button>
+    
+    </form>
   
-        <a [routerLink]="['/home','actualizar-usuario',u.id]">
-          <button>Actualizar</button>
-        </a>
+  </div>
   
-        <a [routerLink]="['/home','gestion-roles',u.id]">
-          <button>Roles</button>
-        </a>
+  <div class="alert alert-danger" *ngIf="mensaje">  {{mensaje}} </div>
+  <br>
+  <div>
+    <table class="table">
+      
+      <!-- tr -- table row -->
+      <thead class="thead-dark">
+      <tr>
+        <!-- tr -- table header-->
+        <th> Codigo</th>
+        <th> Nombre</th>
+        <th> Password</th>
+        <th> Fecha Nacimiento</th>
+        <th> Correo</th>
+        <th> Accion</th>
+      </tr>
+      </thead>
+      <tr *ngFor="let u of usuarios">
+        <td> {{u.id }} </td>
+        <td> {{u.nombre}} </td>
+        <td> {{u.password }} </td>
+        <td> {{u.fechaNacimiento}} </td>
+        <td> {{u.correo}} </td>
         
         
-      </td>
-    
-    
-    </tr>
-    
-    
-    <!-- Directivas con importantes -->
-    <!-- *ngFor   Itera un Arreglo -->
-  </table>
+        <td>
+          <!-- Property Binding [Propiedad Js] -->
+         
+          <button (click)="eliminar(u)"
+                  class="btn btn-outline-danger" >Borrar</button>
+          
+          <a [routerLink]="['/home','actualizar-usuario',u.id]">
+            <button class="btn btn-outline-success" >Actualizar</button>
+          </a>
+          <a [routerLink]="['/home','gestion-roles',u.id]">
+            <button  class="btn btn-outline-info" >Roles</button>
+          </a>
+
+        </td>
+      
+      
+      </tr>
+      
+      
+      <!-- Directivas con importantes -->
+      <!-- *ngFor   Itera un Arreglo -->
+    </table>
+  </div>
+  
+  <br>
+  
+  
+  <a routerLink="/crear-usuario">
+    <button class="btn btn-success">
+      Crear Nuevo Usuario
+    </button>
+  </a>
 </div>
 
-<br>
-
-
-<a routerLink="/home/crear-usuario">
-  <button>
-    CREAR
-  </button>
-</a>

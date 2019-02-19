@@ -1,48 +1,77 @@
-<h1> LISTA DE EVENTOS </h1>
-
-<div>
-  <label for="campoBuscar"></label>
-  <input id="campoBuscar" type="text">
-  <button> BUSCAR </button>
-</div>
-
-
-<div>
-  <table>
+<div class="container">
+  
+  <h1> LISTA DE EVENTOS </h1>
+  
+  
+  <div>
     
-    <!-- tr -- table row -->
-    <tr>
-      <!-- tr -- table header-->
-      <th> Codigo </th>
-      <th> Nombre </th>
-      <th> Fecha del Evento </th>
     
-    </tr>
-    
-    <tr *ngFor="let e of  eventos">
-      <td> {{e.id }} </td>
-      <td> {{e.nombre}} </td>
-      <td> {{e.fechaEvento }} </td>
+    <p *ngIf="controlEvento.errors"> Error
+      <span *ngIf="controlEvento.errors.required "> Campo requerido</span>
       
+      <span *ngIf="controlEvento.errors.pattern "> Solo se permimten letras</span>
+    </p>
+    
+    <label for="campoBuscar">NOMBRE EVENTO</label>
+    <form class="form-inline my-2 my-lg-0">
       
-      <td>
+      <input class="form-control mr-sm-2"
+             size="70"
+             id="campoBuscar"
+             name="campoBuscar"
+             type="text"
+             [(ngModel)]="nombreEvento"
+             #controlEvento
+             required
+             pattern="^[a-zA-Z_áéíóúñ\s]*$">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0"
+              (click)="buscarEventoNombre()"> BUSCAR</button>
+    
+    </form>
+  </div>
+  
+  <br>
+  <div class="alert alert-danger" *ngIf="mensaje">  {{mensaje}} </div>
+  <br>
+  
+  <div>
+    <table class="table">
+      
+      <!-- tr -- table row -->
+      <tr class="thead-dark">
+        <!-- tr -- table header-->
+        <th> Codigo</th>
+        <th> Nombre</th>
+        <th> Fecha del Evento</th>
+        <th> Acciones</th>
+      
+      </tr>
+      
+      <tr *ngFor="let e of  eventos">
+        <td> {{e.id }} </td>
+        <td> {{e.nombre}} </td>
+        <td> {{e.fechaEvento }} </td>
         
-        <a [routerLink]="['/home','eMedicamento',e.id]">
-          <button>Añadir hijos</button>
-        </a>
-        <a [routerLink]="['/home','publicEvent',e.id]">
-          <button>Ver</button>
-        </a>
-        <a [routerLink]="['/home','buscarFactura',e.id]">
-          <button>Gestionar Facturas</button>
-        </a>
+        
+        <td>
+          
+          <a [routerLink]="['/home','eMedicamento',e.id]">
+            <button>Añadir hijos</button>
+          </a>
+          <a [routerLink]="['/home','publicEvent',e.id]">
+            <button>Ver</button>
+          </a>
+          <a [routerLink]="['/home','buscarFactura',e.id]">
+            <button>Gestionar Facturas</button>
+          </a>
+        
+        </td>
+      </tr>
       
-      </td>
-    </tr>
-    
-    
-    
-    <!-- Directivas con importantes -->
-    <!-- *ngFor   Itera un Arreglo -->
-  </table>
+      
+      <!-- Directivas con importantes -->
+      <!-- *ngFor   Itera un Arreglo -->
+    </table>
+  </div>
 </div>

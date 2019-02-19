@@ -12,17 +12,27 @@
 
 </head>
 
+
 <body>
 <div class="container"
      *ngIf="usuarioActualizar"
 >
+  <div class="row">
+    <div class="col-md-4">
+      <h1 class="align-middle"> Gestion de Roles </h1>
+    </div>
+  </div>
+  
+  <br>
+  <br>
   
   <div class="row">
     <div class="col-md-4">
       <div class="card">
         <div class="card-body">
-          <br>
+          
           <h3>Usuario</h3>
+          <br>
           <h6>{{usuarioActualizar.nombre}}</h6>
           <h6>{{usuarioActualizar.correo}}</h6>
           <h6>{{usuarioActualizar.fechaNacimiento}}</h6>
@@ -33,13 +43,16 @@
     
     
     <div class="col-md-4">
+      
+      
       <tr>
         <!-- tr -- table header-->
-        <th>Roles del Usuario</th>
+        <th><h5>Roles del Usuario</h5></th>
       </tr>
+      <br>
       
       <tr *ngFor="let u of usuarioActualizar.roles">
-        <td > {{u.nombre}} </td>
+        <td size="10"> {{u.nombre}} </td>
         <td>
           <button (click)="eliminarRolUsuario(u.id)">
             X
@@ -48,7 +61,10 @@
       </tr>
     </div>
     
-    <div class="col-md-4">Agregar nuevo Rol
+    <div class="col-md-4">
+      <h5> Agregar nuevo Rol </h5>
+      <br>
+      
       <div class="card">
         <div class="form-group">
           
