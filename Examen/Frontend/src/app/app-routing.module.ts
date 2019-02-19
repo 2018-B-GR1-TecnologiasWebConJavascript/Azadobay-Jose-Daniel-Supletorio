@@ -16,6 +16,8 @@ import { AgregarItemComponent } from './rutas/facturas/agregar-item/agregar-item
 import { ListaFacturasComponent } from './rutas/facturas/lista-facturas/lista-facturas.component';
 import {RutaPrincipalComponent} from "./rutas/ruta-principal/ruta-principal.component";
 import {PublicEventComponent} from "./rutas/eventos/public-event/public-event.component";
+import {ActualizarPacienteComponent} from "./rutas/pacientes/actualizar-paciente/actualizar-paciente.component";
+import {CrearPacienteComponent} from "./rutas/pacientes/crear-paciente/crear-paciente.component";
 
 
 const routes: Routes = [
@@ -78,6 +80,14 @@ const routes: Routes = [
       {
         path: 'listaFacturas',
         component: ListaFacturasComponent
+      },
+      {
+        path: 'actualizar-paciente/:id',
+        component: ActualizarPacienteComponent
+      },
+      {
+        path: 'crear-paciente',
+        component: CrearPacienteComponent
       },
 
 

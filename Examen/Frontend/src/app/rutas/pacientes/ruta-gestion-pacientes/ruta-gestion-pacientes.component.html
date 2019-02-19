@@ -10,11 +10,8 @@
 <main>
   <div>
     <p>Gestion de pacientes</p>
-    <a routerLink="/home/crear-empresa">
-      <button>
-        CREAR
-      </button>
-    </a>
+    
+    
   
     <div>
       <label for="usuarioABuscar"></label>
@@ -44,14 +41,18 @@
         <td> {{p.id }} </td>
         <td> {{p.nombres}} </td>
         <td> {{p.apellidos}} </td>
-        <td> {{p.fecha_nacimiento}} </td>
+        <td> {{p.fechaNacimiento}} </td>
         <td> {{p.numeroHijos}} </td>
         <td> {{p.seguroSocial}} </td>
         
         
         <td>
           <button (click)="eliminar(empresa)"> Eliminar</button>
-          <button> Actualizar</button>
+          
+          <a [routerLink]="['/home','actualizar-paciente',p.id]">
+            <button class="btn btn-outline-success" >Actualizar</button>
+          </a>
+          
         </td>
       </tr>
       
@@ -60,6 +61,11 @@
       <!-- *ngFor   Itera un Arreglo -->
     </table>
   </div>
+  
+  <a [routerLink]="['/home','crear-paciente']">
+    <button class="btn btn-outline-success" >NUEVO PACIENTE</button>
+  </a>
+
 </main>
 </html>
 

@@ -31,6 +31,9 @@ import {FacturaService} from "./Servicios/REST/factura.service";
 import {ButtonModule} from "primeng/button";
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import { FormularioPacienteComponent } from './Componentes/formulario-paciente/formulario-paciente.component';
+import { ActualizarPacienteComponent } from './rutas/pacientes/actualizar-paciente/actualizar-paciente.component';
+import { CrearPacienteComponent } from './rutas/pacientes/crear-paciente/crear-paciente.component';
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import {MessageModule} from 'primeng/message';
     RutaPrincipalComponent,
     PublicEventComponent,
     AgregarItemComponent,
-    ListaFacturasComponent
+    ListaFacturasComponent,
+    FormularioPacienteComponent,
+    ActualizarPacienteComponent,
+    CrearPacienteComponent
   ],
   imports: [
     BrowserModule,

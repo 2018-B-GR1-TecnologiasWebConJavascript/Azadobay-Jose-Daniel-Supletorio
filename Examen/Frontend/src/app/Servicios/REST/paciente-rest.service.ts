@@ -29,6 +29,49 @@ export class PacienteRestService {
     return paciente$;
   }
 
+  addPaciente(paciente: Paciente): Observable<Paciente> {
+    const url = environment.url + this.nombreModelo;
+
+    return this._httpClient
+      .post(url, paciente)
+      .pipe(
+        map(u => <Paciente>u)
+      );
+
+  }
+
+  pacientePorId(id: number | string): Observable<Paciente> {
+    const url = environment.url + this.nombreModelo + '/' + id;
+
+    return this._httpClient
+      .get(url)
+      .pipe(
+        map(u => <Paciente>u)
+      );
+
+  }
+
+  actualizar(usuario: Paciente) {
+    console.log(usuario);
+    const url = environment.url + this.nombreModelo + '/' + usuario.id;
+
+    return this._httpClient
+      .put(url, usuario)
+      .pipe(
+        map(u => <Paciente>u)
+      );
+
+  }
+
+  delete(id: number): Observable<Paciente> {
+    return this._httpClient
+      .delete(environment.url + this.nombreModelo + `/${id}`)
+      .pipe(map(u => <Paciente>u)); // Castear
+  }
+
+
+
+
 
 }
 

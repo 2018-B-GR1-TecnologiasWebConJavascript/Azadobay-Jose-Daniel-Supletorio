@@ -1,0 +1,17 @@
+<h3> Actualizar Paciente </h3>
+
+
+<div *ngIf="paciente">
+<app-formulario-paciente
+[nombre]="paciente.nombres"
+[apellidos]="paciente.apellidos"
+[fechaN]="paciente.fechaNacimiento"
+[numeroHijos]="paciente.numeroHijos"
+[nombreBoton]="'Actualizar'"
+
+(formularioValido)="actualizarPaciente($event)"
+
+>
+
+</app-formulario-paciente>
+</div>
