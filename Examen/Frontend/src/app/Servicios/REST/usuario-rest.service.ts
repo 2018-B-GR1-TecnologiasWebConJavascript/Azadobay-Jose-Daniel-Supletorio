@@ -22,6 +22,12 @@ export class UsuarioRestService {
   //METODOS PARA USUARIOS
 
 
+  obtenerDatos(){
+    const objeto$ = this._httpClient.get('http://192.168.0.130:8080/previsionone-model-engine-rest/service/model/getAllModelByCompanyId/1')
+
+    return objeto$;
+  }
+
   buscarTodo(): Observable<Usuario[]> {
     // http client es un observable
     const objeto$ = this._httpClient.get(environment.url + this.nombreModelo).pipe(

@@ -24,6 +24,8 @@ export class CrearPacienteComponent implements OnInit {
   }
 
   crearPaciente(paciente: Paciente) {
+
+
     const crearUsuario$ = this.pacienteRestService.addPaciente(paciente);
 
     console.log(paciente);

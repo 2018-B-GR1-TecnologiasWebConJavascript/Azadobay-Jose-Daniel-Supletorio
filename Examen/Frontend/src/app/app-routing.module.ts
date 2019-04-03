@@ -18,6 +18,7 @@ import {RutaPrincipalComponent} from "./rutas/ruta-principal/ruta-principal.comp
 import {PublicEventComponent} from "./rutas/eventos/public-event/public-event.component";
 import {ActualizarPacienteComponent} from "./rutas/pacientes/actualizar-paciente/actualizar-paciente.component";
 import {CrearPacienteComponent} from "./rutas/pacientes/crear-paciente/crear-paciente.component";
+import {CrearMedicamentoComponent} from "./rutas/medicamentos/crear-medicamento/crear-medicamento.component";
 
 
 const routes: Routes = [
@@ -88,6 +89,10 @@ const routes: Routes = [
       {
         path: 'crear-paciente',
         component: CrearPacienteComponent
+      },
+      {
+        path: 'crear-medicamento',
+        component: CrearMedicamentoComponent
       },
 
 

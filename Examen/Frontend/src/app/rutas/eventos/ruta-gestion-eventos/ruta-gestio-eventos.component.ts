@@ -86,7 +86,7 @@ export class RutaGestioEventosComponent implements OnInit {
               this.eventos = [];
             }else{
               this.eventos = respuesta;
-              this.mensaje=''
+              this.mensaje='';
             }
           }, (error) => {
             console.error('Error', error);

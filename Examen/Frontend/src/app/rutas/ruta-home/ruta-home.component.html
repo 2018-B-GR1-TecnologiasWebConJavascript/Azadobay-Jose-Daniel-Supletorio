@@ -21,16 +21,16 @@
 </head>
 
 
-<!-- <div class="container" *ngIf="roles">
-  -->
-  <div class="container">
+<div class="container" *ngIf="roles">
+  
+  <!-- <div class="container"> -->
   
   <ul class="nav nav-pills nav-fill">
     
-    <!--  <li class="nav-item"
-        *ngIf="_autenticacionRS.esAdministrador(roles)"> -->
-    
-    <li>
+    <li class="nav-item"
+        *ngIf="_autenticacionRS.esAdministrador(roles)">
+      
+      <!-- <li> -->
       <!-- a -> anchor -> ancla -->
       <a class="nav-link active"
          routerLink="/home/gUsuarios">Gestion de Usuarios
@@ -38,33 +38,31 @@
     
     </li>
     <br>
-    <!--  <li *ngIf="_autenticacionRS.esUsuario(roles)">  -->
-    <!-- <li class="nav-item" *ngIf="_autenticacionRS.esUsuario(roles)">-->
-    <li>
+    
+    <li class="nav-item" *ngIf="_autenticacionRS.esUsuario(roles)">
+      <!-- <li>-->
       <a class="nav-link "
          routerLink="/home/gPacientes">Gestion de Pacientes
       </a>
     </li>
     
     <!-- <li *ngIf="_autenticacionRS.esUsuario(roles)"> -->
-    <!--  <li class="nav-item" *ngIf="_autenticacionRS.esUsuario(roles)"> -->
-    <li>
+    <li class="nav-item" *ngIf="_autenticacionRS.esUsuario(roles)">
+      
       <a class="nav-link active"
          routerLink="/home/gMedicamentos">Gestion de Medicamentos
       </a>
     </li>
     
-    
-    <!-- <li class="nav-item" *ngIf="_autenticacionRS.esCajero(roles)"> -->
-    <li>
+    <li class="nav-item" *ngIf="_autenticacionRS.esCajero(roles)">
+      
       <a class="nav-link"
          routerLink="/home/gEventos">Gestion de Eventos</a>
     </li>
     
     <!-- <li *ngIf="_autenticacionRS.escliente(roles)"> -->
-    <!--  <li class="nav-item" *ngIf="_autenticacionRS.escliente(roles)"> -->
+    <li class="nav-item" *ngIf="_autenticacionRS.escliente(roles) || _autenticacionRS.esCajero(roles)">
       
-      <li>
       <a class="nav-link active"
          routerLink="/home/listaFacturas">Gestion de Facturas</a>
     </li>

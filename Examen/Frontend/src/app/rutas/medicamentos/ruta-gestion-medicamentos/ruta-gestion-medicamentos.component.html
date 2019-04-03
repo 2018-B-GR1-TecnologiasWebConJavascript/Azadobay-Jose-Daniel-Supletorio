@@ -1,5 +1,6 @@
 <h1>  LISTA DE MEDICAMENTOS </h1>
 
+
 <div>
   <label for="campoBuscar"></label>
   <input id="campoBuscar" type="text">
@@ -39,9 +40,11 @@
       </td>
     </tr>
     
-    
-    
     <!-- Directivas con importantes -->
     <!-- *ngFor   Itera un Arreglo -->
   </table>
 </div>
+
+<a [routerLink]="['/home','crear-medicamento']">
+  <button class="btn btn-outline-success" >NUEVO MEDICAMENTO</button>
+</a>

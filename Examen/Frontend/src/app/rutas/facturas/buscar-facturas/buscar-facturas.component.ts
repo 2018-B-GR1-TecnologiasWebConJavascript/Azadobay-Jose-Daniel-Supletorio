@@ -152,7 +152,7 @@ export class BuscarFacturasComponent implements OnInit {
   getFacturasEstado(tipoBusqueda) {
 
     //const objeto$ = this._facturaRestService.getFacturasPorEventoUsuarioTipo(environment.usuarioLogeado,this.idEvento, tipoBusqueda);
-    const objeto$ = this._facturaRestService.getFacturasPorEventoUsuarioTipo(4, this.idEvento, tipoBusqueda);
+    const objeto$ = this._facturaRestService.getFacturasPorEventoUsuarioTipo(environment.usuarioLogeado, this.idEvento, tipoBusqueda);
     objeto$
       .subscribe(
         (factura: Factura[]) => {
@@ -167,7 +167,7 @@ export class BuscarFacturasComponent implements OnInit {
   }
 
   getTodasFacturas() {
-    const objeto$ = this._facturaRestService.getFacturasTodasSinCliente(4, this.idEvento);
+    const objeto$ = this._facturaRestService.getFacturasTodasSinCliente(environment.usuarioLogeado, this.idEvento);
     objeto$
       .subscribe(
         (factura: Factura[]) => {

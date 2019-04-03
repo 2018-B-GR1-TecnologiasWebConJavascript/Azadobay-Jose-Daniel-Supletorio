@@ -34,6 +34,8 @@ import {MessageModule} from 'primeng/message';
 import { FormularioPacienteComponent } from './Componentes/formulario-paciente/formulario-paciente.component';
 import { ActualizarPacienteComponent } from './rutas/pacientes/actualizar-paciente/actualizar-paciente.component';
 import { CrearPacienteComponent } from './rutas/pacientes/crear-paciente/crear-paciente.component';
+import { FormularioMedicamentoComponent } from './Componentes/formulario-medicamento/formulario-medicamento.component';
+import { CrearMedicamentoComponent } from './rutas/medicamentos/crear-medicamento/crear-medicamento.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { CrearPacienteComponent } from './rutas/pacientes/crear-paciente/crear-p
     ListaFacturasComponent,
     FormularioPacienteComponent,
     ActualizarPacienteComponent,
-    CrearPacienteComponent
+    CrearPacienteComponent,
+    FormularioMedicamentoComponent,
+    CrearMedicamentoComponent
   ],
   imports: [
     BrowserModule,
